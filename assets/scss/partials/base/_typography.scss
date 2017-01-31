@@ -1,0 +1,102 @@
+@import "fonts";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+div{
+	color: white;
+	font-style: normal;
+	margin: 0;
+}
+
+#menu li{
+	text-transform: uppercase;
+	font: $rg-dropdown-link;
+	@include media($xl-desktop){
+		font: $xl-dropdown-link;
+	}
+	@include media($lg-desktop){
+		font: $lg-dropdown-link;
+	}
+	@include media($md-desktop){
+		font: $rg-dropdown-link;
+	}
+	@include media($lg-mobile){
+		font: $rg-dropdown-link;
+	}
+	@include media($md-mobile){
+		font: $rg-dropdown-link;
+	}
+	@include media($mobile){
+		font: $md-dropdown-link;
+	}
+	@include media($sm-mobile){
+		font: $md-dropdown-link;
+	}
+	@include media($xs-mobile){
+		font: $rg-dropdown-link;
+	}
+}
+
+.stage-number{
+	font: $md-story-heading;
+	color: $lightgray;
+	@include media($xl-desktop){
+		font: $lg-story-heading;
+	}
+	@include media($lg-desktop){
+		font: $rg-story-heading;
+	}
+	@include media($md-desktop){
+		font: $md-story-heading;
+	}
+	@include media($lg-mobile){
+		font: $md-story-heading;
+	}
+	@include media($md-mobile){
+		font: $md-story-heading;
+	}
+	@include media($mobile){
+		font: $sm-story-heading;
+	}
+	@include media($sm-mobile){
+		font: $sm-story-heading;
+	}
+	@include media($xs-mobile){
+		font: $md-story-heading;
+	}
+}
+
+.stage-title{
+	font: $xxs-heading;
+	color: white;
+	@include media($xl-desktop){
+		font: $md-heading;
+	}
+	@include media($lg-desktop){
+		font: $sm-heading;
+	}
+	@include media($md-desktop){
+		font: $xxs-heading;
+	}
+	@include media($lg-mobile){
+		font: $xxs-heading;
+	}
+	@include media($md-mobile){
+		font: $xxs-heading;
+	}
+	@include media($mobile){
+		font: $xxs-heading;
+	}
+	@include media($sm-mobile){
+		font: $xxs-heading;
+	}
+	@include media($xs-mobile){
+		font: $xs-heading;
+	}
+}
+
