@@ -1,0 +1,134 @@
+#progress-bar{
+	@include position(absolute, 85% 0 null 0);
+
+	.container{
+		position: relative;
+
+		svg{
+			width:90%;
+
+			#current-progress{
+				@include transform(translateX(-100%));
+				@include transition(all 2s ease-in-out);
+
+				&.slow-progress{
+					@include transition(all 4s ease-in-out !important);
+				}
+			}
+			
+			#one, #two, #three, #four, #five, #six, #seven, #eight{
+				cursor: pointer;
+				path, circle{
+					@include transition(all 1s ease-in-out);
+					@include transition-delay(.3s);
+				}	
+			}
+			
+
+			&.stage1-is-active{
+				#current-progress{
+					@include transform(translateX(-87%));
+				}
+				.highlight-circle{
+					circle{
+						fill: $lightblue;
+					}
+					path{
+						fill: white;
+					}
+				}
+			}
+			&.stage2-is-active{
+				#current-progress{
+					@include transform(translateX(-75%));
+				}
+				.highlight-circle{
+					circle{
+						fill: $lightblue;
+					}
+					path{
+						fill: white;
+					}
+				}
+			}
+			&.stage3-is-active{
+				#current-progress{
+					@include transform(translateX(-63%));
+				}
+				.highlight-circle{
+					circle{
+						fill: $lightblue;
+					}
+					path{
+						fill: white;
+					}
+				}
+			}
+			&.stage4-is-active{
+				#current-progress{
+					@include transform(translateX(-51%));
+				}
+				.highlight-circle{
+					circle{
+						fill: $lightblue;
+					}
+					path{
+						fill: white;
+					}
+				}
+			}
+			&.stage5-is-active{
+				#current-progress{
+					@include transform(translateX(-39%));
+				}
+				.highlight-circle{
+					circle{
+						fill: $lightblue;
+					}
+					path{
+						fill: white;
+					}
+				}
+			}
+			&.stage6-is-active{
+				#current-progress{
+					@include transform(translateX(-25%));
+				}
+				.highlight-circle{
+					circle{
+						fill: $lightblue;
+					}
+					path{
+						fill: white;
+					}
+				}
+			}
+			&.stage7-is-active{
+				#current-progress{
+					@include transform(translateX(-12%));
+				}
+				.highlight-circle{
+					circle{
+						fill: $lightblue;
+					}
+					path{
+						fill: white;
+					}
+				}
+			}
+			&.stage8-is-active{
+				#current-progress{
+					@include transform(translateX(0%));
+				}
+				.highlight-circle{
+					circle{
+						fill: $lightblue;
+					}
+					path{
+						fill: white;
+					}
+				}
+			}
+		}
+	}
+}

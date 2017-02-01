@@ -105,21 +105,5 @@
 		}
 		
 	}
-
-	#progress-bar{
-		@include position(absolute, 85% 0 null 0);
-		cursor: pointer;
-
-		.container{
-			position: relative;
-
-			svg{
-				width:90%;
-
-				#current-progress{
-					@include transform(translateX(-100%));
-				}
-			}
-		}
-	}	
+	
 }

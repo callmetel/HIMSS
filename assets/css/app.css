@@ -288,22 +288,6 @@ header {
           -ms-transform: rotateY(-10deg) translateX(-50%) translateY(-50%);
           -o-transform: rotateY(-10deg) translateX(-50%) translateY(-50%);
           transform: rotateY(-10deg) translateX(-50%) translateY(-50%); }
-  #map-container #progress-bar {
-    position: absolute;
-    top: 85%;
-    right: 0;
-    left: 0;
-    cursor: pointer; }
-    #map-container #progress-bar .container {
-      position: relative; }
-      #map-container #progress-bar .container svg {
-        width: 90%; }
-        #map-container #progress-bar .container svg #current-progress {
-          -webkit-transform: translateX(-100%);
-          -moz-transform: translateX(-100%);
-          -ms-transform: translateX(-100%);
-          -o-transform: translateX(-100%);
-          transform: translateX(-100%); }
 
 .move-back {
   -webkit-animation: fadein 1s ease-out;
@@ -1159,6 +1143,118 @@ header {
     margin-left: 1.7vw;
     padding-bottom: 15px;
     position: relative; }
+
+#progress-bar {
+  position: absolute;
+  top: 85%;
+  right: 0;
+  left: 0; }
+  #progress-bar .container {
+    position: relative; }
+    #progress-bar .container svg {
+      width: 90%; }
+      #progress-bar .container svg #current-progress {
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+        transform: translateX(-100%);
+        -webkit-transition: all 2s ease-in-out;
+        -moz-transition: all 2s ease-in-out;
+        transition: all 2s ease-in-out; }
+        #progress-bar .container svg #current-progress.slow-progress {
+          -webkit-transition: all 4s ease-in-out !important;
+          -moz-transition: all 4s ease-in-out !important;
+          transition: all 4s ease-in-out !important; }
+      #progress-bar .container svg #one, #progress-bar .container svg #two, #progress-bar .container svg #three, #progress-bar .container svg #four, #progress-bar .container svg #five, #progress-bar .container svg #six, #progress-bar .container svg #seven, #progress-bar .container svg #eight {
+        cursor: pointer; }
+        #progress-bar .container svg #one path, #progress-bar .container svg #one circle, #progress-bar .container svg #two path, #progress-bar .container svg #two circle, #progress-bar .container svg #three path, #progress-bar .container svg #three circle, #progress-bar .container svg #four path, #progress-bar .container svg #four circle, #progress-bar .container svg #five path, #progress-bar .container svg #five circle, #progress-bar .container svg #six path, #progress-bar .container svg #six circle, #progress-bar .container svg #seven path, #progress-bar .container svg #seven circle, #progress-bar .container svg #eight path, #progress-bar .container svg #eight circle {
+          -webkit-transition: all 1s ease-in-out;
+          -moz-transition: all 1s ease-in-out;
+          transition: all 1s ease-in-out;
+          -webkit-transition-delay: 0.3s;
+          -moz-transition-delay: 0.3s;
+          transition-delay: 0.3s; }
+      #progress-bar .container svg.stage1-is-active #current-progress {
+        -webkit-transform: translateX(-87%);
+        -moz-transform: translateX(-87%);
+        -ms-transform: translateX(-87%);
+        -o-transform: translateX(-87%);
+        transform: translateX(-87%); }
+      #progress-bar .container svg.stage1-is-active .highlight-circle circle {
+        fill: #70BEE0; }
+      #progress-bar .container svg.stage1-is-active .highlight-circle path {
+        fill: white; }
+      #progress-bar .container svg.stage2-is-active #current-progress {
+        -webkit-transform: translateX(-75%);
+        -moz-transform: translateX(-75%);
+        -ms-transform: translateX(-75%);
+        -o-transform: translateX(-75%);
+        transform: translateX(-75%); }
+      #progress-bar .container svg.stage2-is-active .highlight-circle circle {
+        fill: #70BEE0; }
+      #progress-bar .container svg.stage2-is-active .highlight-circle path {
+        fill: white; }
+      #progress-bar .container svg.stage3-is-active #current-progress {
+        -webkit-transform: translateX(-63%);
+        -moz-transform: translateX(-63%);
+        -ms-transform: translateX(-63%);
+        -o-transform: translateX(-63%);
+        transform: translateX(-63%); }
+      #progress-bar .container svg.stage3-is-active .highlight-circle circle {
+        fill: #70BEE0; }
+      #progress-bar .container svg.stage3-is-active .highlight-circle path {
+        fill: white; }
+      #progress-bar .container svg.stage4-is-active #current-progress {
+        -webkit-transform: translateX(-51%);
+        -moz-transform: translateX(-51%);
+        -ms-transform: translateX(-51%);
+        -o-transform: translateX(-51%);
+        transform: translateX(-51%); }
+      #progress-bar .container svg.stage4-is-active .highlight-circle circle {
+        fill: #70BEE0; }
+      #progress-bar .container svg.stage4-is-active .highlight-circle path {
+        fill: white; }
+      #progress-bar .container svg.stage5-is-active #current-progress {
+        -webkit-transform: translateX(-39%);
+        -moz-transform: translateX(-39%);
+        -ms-transform: translateX(-39%);
+        -o-transform: translateX(-39%);
+        transform: translateX(-39%); }
+      #progress-bar .container svg.stage5-is-active .highlight-circle circle {
+        fill: #70BEE0; }
+      #progress-bar .container svg.stage5-is-active .highlight-circle path {
+        fill: white; }
+      #progress-bar .container svg.stage6-is-active #current-progress {
+        -webkit-transform: translateX(-25%);
+        -moz-transform: translateX(-25%);
+        -ms-transform: translateX(-25%);
+        -o-transform: translateX(-25%);
+        transform: translateX(-25%); }
+      #progress-bar .container svg.stage6-is-active .highlight-circle circle {
+        fill: #70BEE0; }
+      #progress-bar .container svg.stage6-is-active .highlight-circle path {
+        fill: white; }
+      #progress-bar .container svg.stage7-is-active #current-progress {
+        -webkit-transform: translateX(-12%);
+        -moz-transform: translateX(-12%);
+        -ms-transform: translateX(-12%);
+        -o-transform: translateX(-12%);
+        transform: translateX(-12%); }
+      #progress-bar .container svg.stage7-is-active .highlight-circle circle {
+        fill: #70BEE0; }
+      #progress-bar .container svg.stage7-is-active .highlight-circle path {
+        fill: white; }
+      #progress-bar .container svg.stage8-is-active #current-progress {
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+        transform: translateX(0%); }
+      #progress-bar .container svg.stage8-is-active .highlight-circle circle {
+        fill: #70BEE0; }
+      #progress-bar .container svg.stage8-is-active .highlight-circle path {
+        fill: white; }
 
 .absolute-right {
   position: absolute;
