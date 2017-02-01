@@ -1,0 +1,38 @@
+#scenarios{
+
+    video#scenarios-video { 
+        @include position(fixed, 50% 0 0 50%);
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1000;
+        display: inherit;
+        opacity:0;
+        @include transform(translateX(-50%) translateY(-50%));
+        background: url('../images/intro.png') no-repeat;
+        background-size: cover;
+        @include transition(opacity 1s ease-in-out);
+
+        &.fade-in{
+            opacity:1
+        }
+    }
+
+    #buttons-container{
+        width: 100%;
+        height: 100%;
+
+        button{
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            opacity:0;
+
+            &.fade-in{
+                opacity:1
+            }
+        }
+    }
+
+}

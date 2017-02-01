@@ -1,15 +1,35 @@
 $(document).ready(function() {
 	 $('.menu-item:eq(0)').on('click', function(){
+	 	$('#scenarios-video').removeClass('fade-in');
 	 	$('#menu').removeClass().addClass('tab1-is-active');
+	 	$('#scenarios-video')[0].pause();
+	 	$('#medicity-network').removeClass('is-next-section is-previous-section').addClass('is-current-section');
+	 	$('#scenarios, #architecture, #solutions').removeClass('is-current-section is-next-section is-previous-section').addClass('is-next-section');
 	 });
 	 $('.menu-item:eq(1)').on('click', function(){
 	 	$('#menu').removeClass().addClass('tab2-is-active');
+	 	$('#scenarios').removeClass('is-next-section is-previous-section').addClass('is-current-section');
+	 	$('#medicity-network').removeClass('is-current-section').addClass('is-previous-section');
+	 	$('#architecture, #solutions').removeClass('is-current-section is-next-section is-previous-section').addClass('is-next-section');
+	 	setTimeout(function(){
+	 		$('#scenarios-video').addClass('fade-in');
+	 	}, 1000);
+	 	setTimeout(function(){
+	 		$('#scenarios-video')[0].play();
+	 		$('#scenarios-video').addClass('fade-in');
+	 	}, 1500);
 	 });
 	 $('.menu-item:eq(2)').on('click', function(){
 	 	$('#menu').removeClass().addClass('tab3-is-active');
+	 	$('#scenarios-video')[0].pause();
+	 	$('#architecture').removeClass('is-next-section is-previous-section').addClass('is-current-section');
+	 	$('#medicity-network, #scenarios').removeClass('is-next-section is-current-section').addClass('is-previous-section');
+	 	$('#solutions').removeClass('is-current-section is-next-section is-previous-section').addClass('is-next-section');
 	 });
 	 $('.menu-item:eq(3)').on('click', function(){
 	 	$('#menu').removeClass().addClass('tab4-is-active');
+	 	$('#solutions').removeClass('is-next-section is-previous-section').addClass('is-current-section');
+	 	$('#scenarios, #architecture, #medicity-network').removeClass('is-current-section is-next-section is-previous-section').addClass('is-previous-section');
 	 });
 
 	 var lastClicked = 1;

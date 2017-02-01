@@ -25,12 +25,6 @@
     @include animation-fill-mode(forwards);
 }
 
-.fade-in {
-    @include animation(fadeIn 1.5s ease-in-out);
-    @include animation-fill-mode(forwards);
-    z-index: 1!important;
-}
-
 .fade-out {
     @include animation(fadeOut 1.5s ease-in-out);
     @include animation-fill-mode(forwards);

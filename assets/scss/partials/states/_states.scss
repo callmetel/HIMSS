@@ -37,66 +37,7 @@
 .is-hidden{
 	opacity:0;
 }
-.has-not-transition{
-	@include transition(none!important);
-}
 
-.is-disabled{
-	cursor: default;
-	&:hover{
-		cursor: default!important;
-		color:rgb(64,64,64)!important;
-	}
-	a{
-		cursor: default;
-		&:hover{
-			cursor: default!important;
-			border: none!important;
-		}
-	}
-}
-
-.is-inactive-section{
-	opacity:0!important;
-	z-index:-1000!important;
-	@include position(fixed, 7vh 0 0 0);
-	@include transition(opacity 1s ease-in-out);
-	display: none;
-}
-
-.is-active-section{
-	opacity:1!important;
-	z-index:1000!important;
-	@include position(fixed, 7vh 0 0 0);
-	@include transition(opacity 1s ease-in-out);
-}
-
-.is-enabled{
-	opacity: 1;
-	cursor: pointer;
-	&:hover{
-		cursor:pointer;
-	}
-}
-.bring-forward{
-	z-index:14000!important;
-}
-.bring-backward{
-	z-index:-1000!important;
-}
-.move-to-top{
-	top:0!important;
-	height:100vh!important;
-	@include transition(all 1s ease-in-out);
-}
-// .fade-in{
-// 	opacity:1!important;
-// 	@include transition(opacity 1s ease-in-out);
-// }
-// .fade-out{
-// 	opacity:0!important;
-// 	@include transition(opacity 1s ease-in-out);
-// }
 .hide {
     display: none!important;
 }
@@ -109,221 +50,46 @@
 	overflow:hidden!important;
 }
 
-a.no-decoration, a:hover.no-decoration{
-  text-decoration: none!important;
-  border:none!important;
-}
-
-.is-saturated{
-	@include filter(saturate(130%));
-}
-
-.is-full-width{
-	width:100vw!important;
-	@include transition(width 1s ease-in-out);
-}
-
-.is-full-height{
-	width:100vh!important;
-	@include transition(width 1s ease-in-out);
-}
-
-.is-rotated{
-	@include transform(translateX(-10px) rotate(90deg)!important);
-	@include transition(transform .35s ease-in-out);
-}
-
-.flipped .back-image{
-  transform: rotateY(0deg)!important;
-  z-index:303!important;
-}
-
-.flipped .front-image{
-  transform: rotateY(180deg)!important;
-  z-index:303!important;
-}
-
-.bring-to-front{
-	z-index: 1000!important;
-	//@include transition(all .25s ease-in-out);
-}
-.send-back{
-	z-index: 0!important;
-	//@include transition(all .25s ease-in-out);
-}
-
-.is-not-drawn{
-	stroke-dashoffset: 786px;
-    stroke-dasharray: 789px;
-}
-.is-filled-in{
-	fill: white!important;
-	@include transition(all .5s ease-in-out);
-}
-.is-not-filled{
-	fill: none!important;
-	@include transition(all .5s ease-in-out);
-}
-.moved-left{
-	right: 0!important;
-	@include transition(all 2.2s ease-in-out);
-}
-
-.is-outlined{
-	//stroke: #fff!important;
-	stroke-width: 10px!important;
-	stroke: #9cb3c4!important;
-	stroke-opacity:1!important;
-	@include transition(all .5s ease-in-out);
-}
-.is-highlighted{
-	background-color: #d8cebf!important;
-	@include transition(all .5s ease-in-out);
-}
-
-.dark-menu, .dark-menu:before, .dark-menu:after{
-	background: #817e77!important;
-	@include transition(all .5s ease-in-out);
-}
-
-.change-top-pos{
-	top:110vh!important;
-	@include transition(all .5s ease-in-out);
-}
 
 .is-previous-section{
-	@include transform(translateY(-100%)!important);
-	z-index: -3000!important;
-	@include transition(transform 1.5s $ease-in-out-quart);
-	transform-origin: initial;
+	@include transform(translateX(-100vw)!important);
+	// z-index: -3000!important;
+	@include transition(all 1.25s $ease-in-out-quart);
 }
 .is-current-section{
-	@include transform(translateY(0%)!important);
-	@include transition(transform 1.5s $ease-in-out-quart);
-	transform-origin: initial;
+	@include transform(translateX(0)!important);
+	@include transition(all 1.25s $ease-in-out-quart);
 }
 .is-next-section{
-	@include transform(translateY(100%)!important);
-	@include transition(transform 1.5s $ease-in-out-quart);
-	transform-origin: initial;
+	@include transform(translateX(100vw)!important);
+	@include transition(all 1.25s $ease-in-out-quart);
 }
 
-.is-current-page{
-	@include transform(translateX(0%)!important);
-	z-index: 3001!important;
-	@include transition(transform 1.5s $ease-in-out-quad);
-	@include transition-delay(.5s);
-	transform-origin: initial;
-}
+// .is-previous-section{
+// 	@include transform(translateY(50%)!important);
+// 	opacity: 0;
+// 	z-index: 0;
+// 	// z-index: -3000!important;
+// 	@include transition(all 1.25s $ease-in-out-quart);
+// }
+// .is-current-section{
+// 	@include transform(translateY(0)!important);
+// 	opacity: 1;
+// 	z-index: 1;
+// 	@include transition(all 1.25s $ease-in-out-quart);
+// 	@include transition-delay(.75s);
+// }
+// .is-next-section{
+// 	@include transform(translateY(50%)!important);
+// 	opacity: 0;
+// 	z-index: 0;
+// 	@include transition(all 1.25s $ease-in-out-quart);
+// }
 
-.is-next-page{
-	@include transform(translateX(100%)!important);
-	@include transition(transform 1.5s $ease-in-out-quad);
-	transform-origin: initial;
-}
-.is-previous-page{
-	@include transform(translateX(-100%)!important);
-	@include transition(all 1.5s $ease-in-out-quad);
-	transform-origin: initial;
-}
-
-.is-last{
-	@include transform(translateY(100%)!important);
-	z-index:-1;
-	@include transition(transform 1.5s $ease-in-out-quart);
-	transform-origin: initial;
-}
-
-.is-active-slide, .is-active-section{
-	z-index:8000;
-}
-.is-inactive-slide, .is-inactive-section{
-	z-index:-8000;
-}
-
-.move-behind{
-	z-index:8000!important;
-}
-.clear-transform{
-	@include transform(none!important);
-}
-
-.move-off-left{
-	@include filter(blur(100px));
-	@include transform(scaleY(.007) translateX(-200%));
-	@include transition(all 1s ease-out);
-	@include transition-delay(1.8s);
-}
-.move-in-right{
-    opacity:1!important;
-	@include filter(blur(0px));
-	@include transform(scaleY(.007) translateY(0) translateX(0%));
-	@include transition(all 1s ease-out);
-}
-.make-current{
-	@include transform(translateY(0%)!important);
-	@include transition(transform .5s $ease-in-out-quart!important);
-}
-.make-previous{
-	@include transform(translateX(-100%)!important);
-	@include transition(transform .001s $ease-in-out-quart!important);
-}
-
-.make-next{
-	@include transform(translateX(100%)!important);
-	@include transition(transform .001s $ease-in-out-quart!important);
-}
 
 
 .is-scrollable{
 	overflow-y: auto!important;
-}
-.is-in-color{
-	@include filter(grayscale(0%)!important);
-	@include transition(transform 1.5s $ease-in-out-quad);
-}
-.change-pos-abs{
-	position:absolute!important;
-	z-index:1!important;
-}
-.faded{
-	opacity: .35;
-}
-.has-overlay{
-	opacity: .25;
-}
-.nobg{
-	&:before{
-		background: transparent!important;
-	}
-	&:after{
-		background: transparent!important;
-	}
-}
-
-.ease-back{
-	@include transition(transform 1.5s $ease-out-back!important);
-}
-.is-dimmed{
-	@include filter(brightness(50%));
-	@include transition(all 1.5s $ease-out-quad);
-}
-.is-on-screen-X{
-	 @include transform(translateX(0%)!important);
-}
-.is-on-screen-Y{
-	@include transform(translateY(0%)!important);
-}
-.is-faded-in-Y{
-	@include transform(translateY(0%)!important);
-	opacity:1!important;
-}
-.is-on-screen{
-	@include transform(translateY(-100vh)!important);
-	z-index: 100;
-}
-.has-white-background{
-	background:white!important;
 }
 
 .is-active-circle{
