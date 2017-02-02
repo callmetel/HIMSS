@@ -32,10 +32,17 @@ $(document).ready(function() {
 	 	$('#scenarios, #architecture, #medicity-network').removeClass('is-current-section is-next-section is-previous-section').addClass('is-previous-section');
 	 });
 
-	 var lastClicked = 1;
+	 var lastClicked = 1, 
+	 	 stagePositions = 'one-stage-pos two-stage-pos three-stage-pos four-stage-pos five-stage-pos six-stage-pos seven-stage-pos eight-stage-pos no-stage-pos flat-stage-pos';
 
 	 $('#one').on('click', function(){
 	 	$('#progress-bar svg').removeClass().addClass('absolute-center stage1-is-active');
+	 	$('#stage-1').removeClass(stagePositions).addClass('one-stage-pos');
+	 	$('.stages-container').not('#stage-1').removeClass(stagePositions).addClass('no-stage-pos');
+	 	$('.stage:eq(0)').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(0)').removeClass('top-layer');
+	 	$('.stage-info:eq(0)').addClass('is-active-info');
+	 	$('.stage-info').not('.stage-info:eq(0)').removeClass('is-active-info');
 
 		switch (lastClicked) {
 		    case 1:
@@ -162,6 +169,13 @@ $(document).ready(function() {
 
 	 $('#two').on('click', function(){
 	 	$('#progress-bar svg').removeClass().addClass('absolute-center stage2-is-active');
+	 	$('#stage-2').removeClass(stagePositions).addClass('one-stage-pos');
+	 	$('#stage-1').removeClass(stagePositions).addClass('two-stage-pos');
+	 	$('.stages-container').not('#stage-1, #stage-2').removeClass(stagePositions).addClass('no-stage-pos');
+	 	$('.stage:eq(1)').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(1)').removeClass('top-layer');
+	 	$('.stage-info:eq(1)').addClass('is-active-info');
+	 	$('.stage-info').not('.stage-info:eq(1)').removeClass('is-active-info');
 
 	 	if(lastClicked >= 2){
 	 		switch (lastClicked) {
@@ -268,7 +282,15 @@ $(document).ready(function() {
 
 	 $('#three').on('click', function(){
 	 	$('#progress-bar svg').removeClass().addClass('absolute-center stage3-is-active');
-	 	
+	 	$('#stage-3').removeClass(stagePositions).addClass('one-stage-pos');
+	 	$('#stage-2').removeClass(stagePositions).addClass('two-stage-pos');
+	 	$('#stage-1').removeClass(stagePositions).addClass('three-stage-pos');
+	 	$('.stages-container').not('#stage-1, #stage-2, #stage-3').removeClass(stagePositions).addClass('no-stage-pos');
+	 	$('.stage:eq(2)').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(2)').removeClass('top-layer');
+	 	$('.stage-info:eq(2)').addClass('is-active-info');
+	 	$('.stage-info').not('.stage-info:eq(2)').removeClass('is-active-info');
+
 	 	if(lastClicked >= 3){
 	 		switch (lastClicked) {
 			    case 3:
@@ -365,6 +387,15 @@ $(document).ready(function() {
 
 	 $('#four').on('click', function(){
 	 	$('#progress-bar svg').removeClass().addClass('absolute-center stage4-is-active');
+	 	$('#stage-4').removeClass(stagePositions).addClass('one-stage-pos');
+	 	$('#stage-3').removeClass(stagePositions).addClass('two-stage-pos');
+	 	$('#stage-2').removeClass(stagePositions).addClass('three-stage-pos');
+	 	$('#stage-1').removeClass(stagePositions).addClass('four-stage-pos');
+	 	$('.stages-container').not('#stage-1, #stage-2, #stage-3, #stage-4').removeClass(stagePositions).addClass('no-stage-pos');
+	 	$('.stage:eq(3)').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(3)').removeClass('top-layer');
+	 	$('.stage-info:eq(3)').addClass('is-active-info');
+	 	$('.stage-info').not('.stage-info:eq(3)').removeClass('is-active-info');
 
 	 	if(lastClicked >= 4){
 	 		switch (lastClicked) {
@@ -456,7 +487,17 @@ $(document).ready(function() {
 
 	 $('#five').on('click', function(){
 	 	$('#progress-bar svg').removeClass().addClass('absolute-center stage5-is-active');
-
+	 	$('#stage-5').removeClass(stagePositions).addClass('one-stage-pos');
+	 	$('#stage-4').removeClass(stagePositions).addClass('two-stage-pos');
+	 	$('#stage-3').removeClass(stagePositions).addClass('three-stage-pos');
+	 	$('#stage-2').removeClass(stagePositions).addClass('four-stage-pos');
+	 	$('#stage-1').removeClass(stagePositions).addClass('five-stage-pos');
+	 	$('.stages-container').not('#stage-1, #stage-2, #stage-3, #stage-4, #stage-5').removeClass(stagePositions).addClass('no-stage-pos');
+	 	$('.stage:eq(4)').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(4)').removeClass('top-layer');
+	 	$('.stage-info:eq(4)').addClass('is-active-info');
+	 	$('.stage-info').not('.stage-info:eq(4)').removeClass('is-active-info');
+	 	
 	 	if(lastClicked >= 5){
 	 		switch (lastClicked) {
 			    case 5:
@@ -546,6 +587,17 @@ $(document).ready(function() {
 	 });
 	 $('#six').on('click', function(){
 	 	$('#progress-bar svg').removeClass().addClass('absolute-center stage6-is-active');
+	 	$('#stage-6').removeClass(stagePositions).addClass('one-stage-pos');
+	 	$('#stage-5').removeClass(stagePositions).addClass('two-stage-pos');
+	 	$('#stage-4').removeClass(stagePositions).addClass('three-stage-pos');
+	 	$('#stage-3').removeClass(stagePositions).addClass('four-stage-pos');
+	 	$('#stage-2').removeClass(stagePositions).addClass('five-stage-pos');
+	 	$('#stage-1').removeClass(stagePositions).addClass('six-stage-pos');
+	 	$('.stages-container').not('#stage-1, #stage-2, #stage-3, #stage-4, #stage-5, #stage-6').removeClass(stagePositions).addClass('no-stage-pos');
+	 	$('.stage:eq(5)').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(5)').removeClass('top-layer');
+	 	$('.stage-info:eq(5)').addClass('is-active-info');
+	 	$('.stage-info').not('.stage-info:eq(5)').removeClass('is-active-info');
 
 	 	if(lastClicked >= 6){
 	 		switch (lastClicked) {
@@ -642,6 +694,18 @@ $(document).ready(function() {
 	 });
 	 $('#seven').on('click', function(){
 	 	$('#progress-bar svg').removeClass().addClass('absolute-center stage7-is-active');
+	 	$('#stage-7').removeClass(stagePositions).addClass('one-stage-pos');
+	 	$('#stage-6').removeClass(stagePositions).addClass('two-stage-pos');
+	 	$('#stage-5').removeClass(stagePositions).addClass('three-stage-pos');
+	 	$('#stage-4').removeClass(stagePositions).addClass('four-stage-pos');
+	 	$('#stage-3').removeClass(stagePositions).addClass('five-stage-pos');
+	 	$('#stage-2').removeClass(stagePositions).addClass('six-stage-pos');
+	 	$('#stage-1').removeClass(stagePositions).addClass('seven-stage-pos');
+	 	$('.stages-container').not('#stage-1, #stage-2, #stage-3, #stage-4, #stage-5, #stage-6, #stage-7').removeClass(stagePositions).addClass('no-stage-pos');
+	 	$('.stage:eq(6)').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(6)').removeClass('top-layer');
+	 	$('.stage-info:eq(6)').addClass('is-active-info');
+	 	$('.stage-info').not('.stage-info:eq(6)').removeClass('is-active-info');
 
 	 	if(lastClicked >= 7){
 	 		switch (lastClicked) {
@@ -750,6 +814,48 @@ $(document).ready(function() {
 	 });
 	 $('#eight').on('click', function(){
 	 	$('#progress-bar svg').removeClass().addClass('absolute-center stage8-is-active');
+	 	$('#stage-8').removeClass(stagePositions).addClass('one-stage-pos');
+	 	$('#stage-7').removeClass(stagePositions).addClass('two-stage-pos');
+	 	$('#stage-6').removeClass(stagePositions).addClass('three-stage-pos');
+	 	$('#stage-5').removeClass(stagePositions).addClass('four-stage-pos');
+	 	$('#stage-4').removeClass(stagePositions).addClass('five-stage-pos');
+	 	$('#stage-3').removeClass(stagePositions).addClass('six-stage-pos');
+	 	$('#stage-2').removeClass(stagePositions).addClass('seven-stage-pos');
+	 	$('#stage-1').removeClass(stagePositions).addClass('eight-stage-pos');
+	 	$('.stage:eq(7)').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(7)').removeClass('top-layer');
+	 	$('.stage-info:eq(7)').addClass('is-active-info');
+	 	$('.stage-info').not('.stage-info:eq(7)').removeClass('is-active-info');
+
+	 	setTimeout(function(){
+	 		setTimeout(function(){
+				$('#stage-8').removeClass(stagePositions).addClass('one-stage-pos');
+	 		}, 250);
+	 		setTimeout(function(){
+				$('#stage-7').removeClass(stagePositions).addClass('one-stage-pos');
+	 		}, 500);
+	 		setTimeout(function(){
+				$('#stage-6').removeClass(stagePositions).addClass('one-stage-pos');
+	 		}, 750);
+	 		setTimeout(function(){
+				$('#stage-5').removeClass(stagePositions).addClass('one-stage-pos');
+	 		}, 1000);
+	 		setTimeout(function(){
+				$('#stage-4').removeClass(stagePositions).addClass('one-stage-pos');
+	 		}, 1250);
+	 		setTimeout(function(){
+				$('#stage-3').removeClass(stagePositions).addClass('one-stage-pos');
+	 		}, 1500);
+	 		setTimeout(function(){
+				$('#stage-2').removeClass(stagePositions).addClass('one-stage-pos');
+	 		}, 1750);
+	 		setTimeout(function(){
+				$('#stage-1').removeClass(stagePositions).addClass('one-stage-pos');
+	 		}, 2000);
+	 		setTimeout(function(){
+				$('#stage-1, #stage-2, #stage-3, #stage-4, #stage-5, #stage-6, #stage-7, #stage-8').removeClass(stagePositions).addClass('flat-stage-pos');
+	 		}, 2750);
+	 	},2250);
 
 	 	switch (lastClicked) {
 		    case 8:
@@ -760,7 +866,7 @@ $(document).ready(function() {
 		    	$('#current-progress').removeClass('slow-progress');
 		    	$('#seven').addClass('highlight-circle');
 		 		setTimeout(function(){
-		    		$('#eight').addClass('highlight-circle');	
+		    		$('#eight').addClass('highlight-circle');
 		    	},350);
 		        break;
 		    case 6:
@@ -777,13 +883,13 @@ $(document).ready(function() {
 		        $('#current-progress').removeClass('slow-progress');
 		        $('#five').addClass('highlight-circle');
 		    	setTimeout(function(){
-		    		$('#six').addClass('highlight-circle');	
+		    		$('#six').addClass('highlight-circle');
 		    	},350);
 		    	setTimeout(function(){
-		    		$('#seven').addClass('highlight-circle');	
+		    		$('#seven').addClass('highlight-circle');
 		    	},700);
 		    	setTimeout(function(){
-		    		$('#eight').addClass('highlight-circle');	
+		    		$('#eight').addClass('highlight-circle');
 		    	},1050);
 		        break;
 		    case 4:

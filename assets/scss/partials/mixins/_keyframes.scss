@@ -123,16 +123,18 @@
     }
 }
 
-@include keyframes (fadeIn) {
+@include keyframes (slideInfoIn) {
     0%{
         opacity:0;
+        top:20%;
     }
-    99% {
-        opacity:1;
+    10%{
+        opacity:0;
+        top:20%;
     }
     100% {
-        z-index:1;
         opacity:1;
+        top:15%;
     }
 }
 @include keyframes (fadeOut) {

@@ -9,10 +9,10 @@
 
 			#current-progress{
 				@include transform(translateX(-100%));
-				@include transition(all 2s ease-in-out);
+				@include transition(all 1.25s ease-in-out);
 
 				&.slow-progress{
-					@include transition(all 4s ease-in-out !important);
+					@include transition(all 2.5s ease-in-out !important);
 				}
 			}
 			

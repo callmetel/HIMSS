@@ -1,3 +1,4 @@
+@import "../mixins/keyframes";
 #map-container{
 	height:100%;
 	position: relative;
@@ -13,12 +14,15 @@
 			@include position(absolute, 20% null null 0);
 			opacity:0;
 			z-index:-1;
-			@include transition(all 1s ease-in-out);
+			// @include transition(all 1s ease-in-out);
+			// @include transition-delay(.5s);
 
 			&.is-active-info{
 				@include position(absolute, 15% null null 0);
 				opacity:1;
 				z-index:1;
+				@include animation(slideInfoIn 1s ease-in-out);
+			    @include animation-fill-mode(forwards);
 			}
 
 			.stage-number{
@@ -55,39 +59,64 @@
 		    transform-style: preserve-3d;
 		    @include transition(all .65s $ease-in-out-quad);
 
-		    &:hover{
-				@include transform(rotateY(-30deg) translateX(-65%) translateY(-50%) translateZ(0px)!important);
-			}
-
 		    &.eight-stage-pos{
-				@include transform(rotateY(-40deg) translateX(-59%) translateY(-50%) translateZ(-700px));
+				@include transform(rotateY(-40deg) translateX(-80%) translateY(-50%) translateZ(-700px));
+				&:hover{
+					@include transform(rotateY(-40deg) translateX(-78%) translateY(-50%) translateZ(-600px)!important);
+				}
 			}
 		    &.seven-stage-pos{
-				@include transform(rotateY(-40deg) translateX(-62%) translateY(-50%) translateZ(-600px));
+				@include transform(rotateY(-40deg) translateX(-80%) translateY(-50%) translateZ(-600px));
+				&:hover{
+					@include transform(rotateY(-40deg) translateX(-78%) translateY(-50%) translateZ(-600px)!important);
+				}
 			}
 			&.six-stage-pos{
-				@include transform(rotateY(-40deg) translateX(-65%) translateY(-50%) translateZ(-500px));
+				@include transform(rotateY(-40deg) translateX(-80%) translateY(-50%) translateZ(-500px));
+				&:hover{
+					@include transform(rotateY(-40deg) translateX(-78%) translateY(-50%) translateZ(-500px)!important);
+				}
 			}
 			&.five-stage-pos{
-				@include transform(rotateY(-40deg) translateX(-68%) translateY(-50%) translateZ(-400px));
+				@include transform(rotateY(-40deg) translateX(-80%) translateY(-50%) translateZ(-400px));
+				&:hover{
+					@include transform(rotateY(-40deg) translateX(-78%) translateY(-50%) translateZ(-400px)!important);
+				}
 			}
 		    &.four-stage-pos{
-				@include transform(rotateY(-40deg) translateX(-71%) translateY(-50%) translateZ(-300px));
+				@include transform(rotateY(-40deg) translateX(-80%) translateY(-50%) translateZ(-300px));
+				&:hover{
+					@include transform(rotateY(-40deg) translateX(-78%) translateY(-50%) translateZ(-300px)!important);
+				}
 			}
 			&.three-stage-pos{
-				@include transform(rotateY(-40deg) translateX(-74%) translateY(-50%) translateZ(-200px));
+				@include transform(rotateY(-40deg) translateX(-80%) translateY(-50%) translateZ(-200px));
+				&:hover{
+					@include transform(rotateY(-40deg) translateX(-78%) translateY(-50%) translateZ(-200px)!important);
+				}
 			}
 			&.two-stage-pos{
-				@include transform(rotateY(-40deg) translateX(-77%) translateY(-50%) translateZ(-100px));
+				@include transform(rotateY(-40deg) translateX(-80%) translateY(-50%) translateZ(-100px));
+				&:hover{
+					@include transform(rotateY(-40deg) translateX(-78%) translateY(-50%) translateZ(-100px)!important);
+				}
 			}
 			&.one-stage-pos{
-				@include transform(rotateY(-40deg) translateX(-80%) translateY(-50%) translateZ(-50px));
+				@include transform(rotateY(-40deg) translateX(-80%) translateY(-50%) translateZ(0px));
+				&:hover{
+					@include transform(rotateY(-40deg) translateX(-78%) translateY(-50%) translateZ(0px)!important);
+				}
+			}
+
+			&.flat-stage-pos{
+				width: 65%;
+    			height: 80%;
+				@include transform(rotateY(0deg) translateX(-40%) translateY(-50%) translateZ(0px));
 			}
 
 			&.no-stage-pos{
-				@include transform(rotateY(-40deg) translateX(-80%) translateY(-50%) translateZ(-50px));
+				@include transform(rotateY(-40deg) translateX(-80%) translateY(-100%) translateZ(0px));
 				opacity:0;
-				display: none;
 			}
 
 			.stage{
@@ -95,11 +124,33 @@
 				height: 100%;
 				background: $transBlue;
 				border: 1px solid $altblue;
-				opacity:.65;
+				opacity: .65;
+				position: relative;
+
+				&:before{
+					content:'';
+					display: block;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					background: $gray;
+					opacity:.85;
+					z-index: 100;
+
+				}
 
 				svg{
 					width:80%;
 					@include transform(rotateY(-10deg) translateX(-50%) translateY(-50%));
+				}
+
+				&.top-layer{
+					opacity:1!important;
+					background: $transBlue2;
+
+					&:before{
+						background: transparent!important;
+					}
 				}
 			}	
 		}

@@ -10,7 +10,6 @@
         display: inherit;
         opacity:0;
         @include transform(translateX(-50%) translateY(-50%));
-        background: url('../images/intro.png') no-repeat;
         background-size: cover;
         @include transition(opacity 1s ease-in-out);
 
