@@ -32,15 +32,17 @@ $(document).ready(function() {
 	 	$('#scenarios, #architecture, #medicity-network').removeClass('is-current-section is-next-section is-previous-section').addClass('is-previous-section');
 	 });
 
-	 var lastClicked = 1, 
+	var lastClicked = 1, 
 	 	 stagePositions = 'one-stage-pos two-stage-pos three-stage-pos four-stage-pos five-stage-pos six-stage-pos seven-stage-pos eight-stage-pos no-stage-pos flat-stage-pos';
 
+	TweenMax.set('.draw', {drawSVG:"100% 100%"});
+	 
 	 $('#one').on('click', function(){
 	 	$('#progress-bar svg').removeClass().addClass('absolute-center stage1-is-active');
 	 	$('#stage-1').removeClass(stagePositions).addClass('one-stage-pos');
 	 	$('.stages-container').not('#stage-1').removeClass(stagePositions).addClass('no-stage-pos');
-	 	$('.stage:eq(0)').addClass('top-layer');
-	 	$('.stage').not('.stage:eq(0)').removeClass('top-layer');
+	 	$('.stage:eq(0)').removeClass('no-bg').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(0)').removeClass('top-layer no-bg');
 	 	$('.stage-info:eq(0)').addClass('is-active-info');
 	 	$('.stage-info').not('.stage-info:eq(0)').removeClass('is-active-info');
 
@@ -139,6 +141,7 @@ $(document).ready(function() {
 		    case 8:
 		        $('#current-progress').addClass('slow-progress');
 		        $('#eight').removeClass('highlight-circle');
+		        TweenMax.set('.draw', {drawSVG:"100% 100%"});
 		    	setTimeout(function(){
 		    		$('#seven').removeClass('highlight-circle');	
 		    	},350);
@@ -172,8 +175,8 @@ $(document).ready(function() {
 	 	$('#stage-2').removeClass(stagePositions).addClass('one-stage-pos');
 	 	$('#stage-1').removeClass(stagePositions).addClass('two-stage-pos');
 	 	$('.stages-container').not('#stage-1, #stage-2').removeClass(stagePositions).addClass('no-stage-pos');
-	 	$('.stage:eq(1)').addClass('top-layer');
-	 	$('.stage').not('.stage:eq(1)').removeClass('top-layer');
+	 	$('.stage:eq(1)').removeClass('no-bg').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(1)').removeClass('top-layer no-bg');
 	 	$('.stage-info:eq(1)').addClass('is-active-info');
 	 	$('.stage-info').not('.stage-info:eq(1)').removeClass('is-active-info');
 
@@ -248,6 +251,7 @@ $(document).ready(function() {
 			    case 8:
 			        $('#current-progress').addClass('slow-progress');
 			        $('#eight').removeClass('highlight-circle');
+			        TweenMax.set('.draw', {drawSVG:"100% 100%"});
 			    	setTimeout(function(){
 			    		$('#seven').removeClass('highlight-circle');	
 			    	},350);
@@ -286,8 +290,8 @@ $(document).ready(function() {
 	 	$('#stage-2').removeClass(stagePositions).addClass('two-stage-pos');
 	 	$('#stage-1').removeClass(stagePositions).addClass('three-stage-pos');
 	 	$('.stages-container').not('#stage-1, #stage-2, #stage-3').removeClass(stagePositions).addClass('no-stage-pos');
-	 	$('.stage:eq(2)').addClass('top-layer');
-	 	$('.stage').not('.stage:eq(2)').removeClass('top-layer');
+	 	$('.stage:eq(2)').removeClass('no-bg').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(2)').removeClass('top-layer no-bg');
 	 	$('.stage-info:eq(2)').addClass('is-active-info');
 	 	$('.stage-info').not('.stage-info:eq(2)').removeClass('is-active-info');
 
@@ -343,6 +347,7 @@ $(document).ready(function() {
 			    case 8:
 			        $('#current-progress').addClass('slow-progress');
 			        $('#eight').removeClass('highlight-circle');
+			        TweenMax.set('.draw', {drawSVG:"100% 100%"});
 			    	setTimeout(function(){
 			    		$('#seven').removeClass('highlight-circle');	
 			    	},350);
@@ -392,8 +397,8 @@ $(document).ready(function() {
 	 	$('#stage-2').removeClass(stagePositions).addClass('three-stage-pos');
 	 	$('#stage-1').removeClass(stagePositions).addClass('four-stage-pos');
 	 	$('.stages-container').not('#stage-1, #stage-2, #stage-3, #stage-4').removeClass(stagePositions).addClass('no-stage-pos');
-	 	$('.stage:eq(3)').addClass('top-layer');
-	 	$('.stage').not('.stage:eq(3)').removeClass('top-layer');
+	 	$('.stage:eq(3)').removeClass('no-bg').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(3)').removeClass('top-layer no-bg');
 	 	$('.stage-info:eq(3)').addClass('is-active-info');
 	 	$('.stage-info').not('.stage-info:eq(3)').removeClass('is-active-info');
 
@@ -433,6 +438,7 @@ $(document).ready(function() {
 			    case 8:
 			        $('#current-progress').addClass('slow-progress');
 			        $('#eight').removeClass('highlight-circle');
+			        TweenMax.set('.draw', {drawSVG:"100% 100%"});
 			    	setTimeout(function(){
 			    		$('#seven').removeClass('highlight-circle');	
 			    	},350);
@@ -493,8 +499,8 @@ $(document).ready(function() {
 	 	$('#stage-2').removeClass(stagePositions).addClass('four-stage-pos');
 	 	$('#stage-1').removeClass(stagePositions).addClass('five-stage-pos');
 	 	$('.stages-container').not('#stage-1, #stage-2, #stage-3, #stage-4, #stage-5').removeClass(stagePositions).addClass('no-stage-pos');
-	 	$('.stage:eq(4)').addClass('top-layer');
-	 	$('.stage').not('.stage:eq(4)').removeClass('top-layer');
+	 	$('.stage:eq(4)').removeClass('no-bg').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(4)').removeClass('top-layer no-bg');
 	 	$('.stage-info:eq(4)').addClass('is-active-info');
 	 	$('.stage-info').not('.stage-info:eq(4)').removeClass('is-active-info');
 	 	
@@ -521,6 +527,7 @@ $(document).ready(function() {
 			    case 8:
 			        $('#current-progress').addClass('slow-progress');
 			        $('#eight').removeClass('highlight-circle');
+			        TweenMax.set('.draw', {drawSVG:"100% 100%"});
 			    	setTimeout(function(){
 			    		$('#seven').removeClass('highlight-circle');	
 			    	},350);
@@ -594,8 +601,8 @@ $(document).ready(function() {
 	 	$('#stage-2').removeClass(stagePositions).addClass('five-stage-pos');
 	 	$('#stage-1').removeClass(stagePositions).addClass('six-stage-pos');
 	 	$('.stages-container').not('#stage-1, #stage-2, #stage-3, #stage-4, #stage-5, #stage-6').removeClass(stagePositions).addClass('no-stage-pos');
-	 	$('.stage:eq(5)').addClass('top-layer');
-	 	$('.stage').not('.stage:eq(5)').removeClass('top-layer');
+	 	$('.stage:eq(5)').removeClass('no-bg').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(5)').removeClass('top-layer no-bg');
 	 	$('.stage-info:eq(5)').addClass('is-active-info');
 	 	$('.stage-info').not('.stage-info:eq(5)').removeClass('is-active-info');
 
@@ -612,6 +619,7 @@ $(document).ready(function() {
 			    case 8:
 			        $('#current-progress').removeClass('slow-progress');
 			        $('#eight').removeClass('highlight-circle');
+			        TweenMax.set('.draw', {drawSVG:"100% 100%"});
 			    	setTimeout(function(){
 			    		$('#seven').removeClass('highlight-circle');	
 			    	},350);
@@ -692,8 +700,7 @@ $(document).ready(function() {
 	 		lastClicked = 6;
 	 	}, 500);
 	 });
-	 $('#seven').on('click', function(){
-	 	$('#progress-bar svg').removeClass().addClass('absolute-center stage7-is-active');
+	 function positionStages7() {
 	 	$('#stage-7').removeClass(stagePositions).addClass('one-stage-pos');
 	 	$('#stage-6').removeClass(stagePositions).addClass('two-stage-pos');
 	 	$('#stage-5').removeClass(stagePositions).addClass('three-stage-pos');
@@ -701,25 +708,33 @@ $(document).ready(function() {
 	 	$('#stage-3').removeClass(stagePositions).addClass('five-stage-pos');
 	 	$('#stage-2').removeClass(stagePositions).addClass('six-stage-pos');
 	 	$('#stage-1').removeClass(stagePositions).addClass('seven-stage-pos');
+	 }
+	 $('#seven').on('click', function(){
+	 	$('#progress-bar svg').removeClass().addClass('absolute-center stage7-is-active');
 	 	$('.stages-container').not('#stage-1, #stage-2, #stage-3, #stage-4, #stage-5, #stage-6, #stage-7').removeClass(stagePositions).addClass('no-stage-pos');
-	 	$('.stage:eq(6)').addClass('top-layer');
-	 	$('.stage').not('.stage:eq(6)').removeClass('top-layer');
+	 	$('.stage:eq(6)').removeClass('no-bg').addClass('top-layer');
+	 	$('.stage').not('.stage:eq(6)').removeClass('top-layer no-bg');
 	 	$('.stage-info:eq(6)').addClass('is-active-info');
 	 	$('.stage-info').not('.stage-info:eq(6)').removeClass('is-active-info');
 
 	 	if(lastClicked >= 7){
 	 		switch (lastClicked) {
 			    case 7:
-			        
 			        console.log('you\'re already at that stage');
 			        break;
 			    case 8:
 			    	$('#current-progress').removeClass('slow-progress');
 			    	$('#eight').removeClass('highlight-circle');
+			    	TweenMax.set('.draw', {drawSVG:"100% 100%"});
+			    	$('.stages-container').not('#stage-8').removeClass(stagePositions).addClass('four-stage-pos');
+			    	setTimeout(function(){
+			    		positionStages7();
+			    	}, 1500);
 			}
 	 	} else if(lastClicked < 7){
 	 		switch (lastClicked) {
 			    case 1:
+			    	positionStages7();
 			        $('#current-progress').addClass('slow-progress');
 			        $('#one').addClass('highlight-circle');
 			 		setTimeout(function(){
@@ -742,6 +757,7 @@ $(document).ready(function() {
 			    	},2100);
 			        break;
 			    case 2:
+			    	positionStages7();
 			        $('#current-progress').addClass('slow-progress');
 			        $('#two').addClass('highlight-circle');
 			 		setTimeout(function(){
@@ -761,6 +777,7 @@ $(document).ready(function() {
 			    	},1750);
 			        break;
 			    case 3:
+			    	positionStages7();
 			        $('#current-progress').addClass('slow-progress');
 			        $('#three').addClass('highlight-circle');
 			 		setTimeout(function(){
@@ -777,6 +794,7 @@ $(document).ready(function() {
 			    	},1400);
 			        break;
 			    case 4:
+			    	positionStages7();
 			        $('#current-progress').addClass('slow-progress');
 			        $('#four').addClass('highlight-circle');
 			 		setTimeout(function(){
@@ -790,6 +808,7 @@ $(document).ready(function() {
 			    	},1050);
 			        break;
 			    case 5:
+			    	positionStages7();
 			        $('#current-progress').removeClass('slow-progress');
 			        $('#five').addClass('highlight-circle');
 			 		setTimeout(function(){
@@ -800,6 +819,7 @@ $(document).ready(function() {
 			    	},700);
 			        break;
 			    case 6:
+			    	positionStages7();
 			    	$('#current-progress').removeClass('slow-progress');
 			    	$('#five').addClass('highlight-circle');
 			 		setTimeout(function(){
@@ -822,40 +842,45 @@ $(document).ready(function() {
 	 	$('#stage-3').removeClass(stagePositions).addClass('six-stage-pos');
 	 	$('#stage-2').removeClass(stagePositions).addClass('seven-stage-pos');
 	 	$('#stage-1').removeClass(stagePositions).addClass('eight-stage-pos');
-	 	$('.stage:eq(7)').addClass('top-layer');
+	 	$('.stage:eq(7)').removeClass('no-bg').addClass('top-layer');
 	 	$('.stage').not('.stage:eq(7)').removeClass('top-layer');
 	 	$('.stage-info:eq(7)').addClass('is-active-info');
 	 	$('.stage-info').not('.stage-info:eq(7)').removeClass('is-active-info');
+	 	TweenMax.set('.draw', {drawSVG:"100% 100%"});
 
 	 	setTimeout(function(){
+			$('#stage-3, #stage-5, #stage-4').removeClass(stagePositions).addClass('four-stage-pos');
 	 		setTimeout(function(){
-				$('#stage-8').removeClass(stagePositions).addClass('one-stage-pos');
-	 		}, 250);
+				$('#stage-2, #stage-6').removeClass(stagePositions).addClass('four-stage-pos');
+	 		}, 100);
 	 		setTimeout(function(){
-				$('#stage-7').removeClass(stagePositions).addClass('one-stage-pos');
-	 		}, 500);
+				$('#stage-7, #stage-8, #stage-1').removeClass(stagePositions).addClass('four-stage-pos');
+	 		}, 200);
 	 		setTimeout(function(){
-				$('#stage-6').removeClass(stagePositions).addClass('one-stage-pos');
-	 		}, 750);
-	 		setTimeout(function(){
-				$('#stage-5').removeClass(stagePositions).addClass('one-stage-pos');
-	 		}, 1000);
-	 		setTimeout(function(){
-				$('#stage-4').removeClass(stagePositions).addClass('one-stage-pos');
-	 		}, 1250);
-	 		setTimeout(function(){
-				$('#stage-3').removeClass(stagePositions).addClass('one-stage-pos');
-	 		}, 1500);
-	 		setTimeout(function(){
-				$('#stage-2').removeClass(stagePositions).addClass('one-stage-pos');
-	 		}, 1750);
-	 		setTimeout(function(){
-				$('#stage-1').removeClass(stagePositions).addClass('one-stage-pos');
-	 		}, 2000);
+	 			$('.stage').removeClass('top-layer').addClass('no-bg');
+	 		},500);
+	 		// setTimeout(function(){
+				// $('#stage-5').removeClass(stagePositions).addClass('four-stage-pos');
+	 		// }, 300);
+	 		// setTimeout(function(){
+				// $('#stage-4').removeClass(stagePositions).addClass('four-stage-pos');
+	 		// }, 400);
+	 		// setTimeout(function(){
+				// $('#stage-3').removeClass(stagePositions).addClass('four-stage-pos');
+	 		// }, 500);
+	 		// setTimeout(function(){
+				// $('#stage-2').removeClass(stagePositions).addClass('four-stage-pos');
+	 		// }, 600);
+	 		// setTimeout(function(){
+				// $('#stage-1').removeClass(stagePositions).addClass('four-stage-pos');
+	 		// }, 2000);
 	 		setTimeout(function(){
 				$('#stage-1, #stage-2, #stage-3, #stage-4, #stage-5, #stage-6, #stage-7, #stage-8').removeClass(stagePositions).addClass('flat-stage-pos');
-	 		}, 2750);
-	 	},2250);
+	 		}, 1000);
+	 		setTimeout(function(){
+	 			TweenMax.staggerFromTo('.draw', 1.5, {drawSVG:"100% 100%", ease: Circ.easeOut}, {drawSVG:"0% 100%", ease: Circ.easeOut}, .45);
+	 		}, 2000);
+	 	},1600);
 
 	 	switch (lastClicked) {
 		    case 8:

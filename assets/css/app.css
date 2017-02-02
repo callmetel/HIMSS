@@ -994,6 +994,14 @@ section {
           background: rgba(154, 185, 225, 0.15); }
           #map-container #stages .stages-container .stage.top-layer:before {
             background: transparent !important; }
+        #map-container #stages .stages-container .stage.no-bg {
+          background: transparent !important;
+          border: 0 !important;
+          -webkit-transition: all 1s ease-in-out;
+          -moz-transition: all 1s ease-in-out;
+          transition: all 1s ease-in-out; }
+          #map-container #stages .stages-container .stage.no-bg:before {
+            background: transparent !important; }
 
 #scenarios video#scenarios-video {
   position: fixed;

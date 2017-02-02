@@ -152,6 +152,16 @@
 						background: transparent!important;
 					}
 				}
+
+				&.no-bg{
+					background: transparent!important;
+					border: 0!important;
+					@include transition(all 1s ease-in-out);
+
+					&:before{
+						background: transparent!important;
+					}
+				}
 			}	
 		}
 		
