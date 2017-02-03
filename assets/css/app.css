@@ -1895,6 +1895,9 @@ section {
   top: 85%;
   right: 0;
   left: 0; }
+  #progress-bar.steps-are-disabled .container svg:not(#play) {
+    z-index: -1 !important;
+    cursor: default !important; }
   #progress-bar .container {
     position: relative; }
     #progress-bar .container #play {
@@ -1920,7 +1923,8 @@ section {
       #progress-bar .container #play.is-playing path {
         fill: #70BEE0; }
     #progress-bar .container svg:last-child {
-      width: 90%; }
+      width: 90%;
+      display: block; }
       #progress-bar .container svg:last-child #current-progress {
         -webkit-transform: translateX(-100%);
         -moz-transform: translateX(-100%);
@@ -2128,6 +2132,10 @@ section {
 
 .no-stroke-width {
   stroke-width: 0 !important; }
+
+.is-disabled {
+  z-index: -1 !important;
+  cursor: default !important; }
 
 .is-scrollable {
   overflow-y: auto !important; }

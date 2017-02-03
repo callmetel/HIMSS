@@ -73,6 +73,11 @@
 	stroke-width:0!important;
 }
 
+.is-disabled{
+	z-index: -1!important;
+	cursor: default!important;
+}
+
 // .is-previous-section{
 // 	@include transform(translateY(50%)!important);
 // 	opacity: 0;

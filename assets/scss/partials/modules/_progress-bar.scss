@@ -1,6 +1,15 @@
 #progress-bar{
 	@include position(absolute, 85% 0 null 0);
 
+	&.steps-are-disabled{
+		.container{
+			svg:not(#play){
+				z-index: -1!important;
+				cursor: default!important;
+			}
+		}
+		
+	}
 	.container{
 		position: relative;
 
@@ -38,6 +47,7 @@
 
 		svg:last-child{
 			width:90%;
+			display: block;
 
 			#current-progress{
 				@include transform(translateX(-100%));
