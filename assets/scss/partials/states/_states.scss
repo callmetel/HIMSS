@@ -12,6 +12,17 @@
 	@include position(absolute, 50% null null 50%);
 	@include transform(translate(-50%, -50%));
 }
+
+.absolute-top{
+	@include position(absolute, 0 null null 50%);
+	@include transform(translateX(-50%));
+}
+
+.absolute-bottom{
+	@include position(absolute, null null 0 50%);
+	@include transform(translateX(-50%));
+}
+
 .no-focus{
 	&:focus{
 		outline: none!important; 

@@ -1,11 +1,38 @@
 #architecture{
 	.container{
 		position: relative;
-		height: 100%;
+		height: 93.75vh;
 		
-		img#data-chart{
+		div#page-1{
 			width: 80%;
 			height: auto;
+			margin-top:8vh;
+		}
+		img#data-chart{
+			width: 100%;
+			height: auto;
+			margin-top:8vh;
+		}
+
+		.cta{
+			cursor: pointer;
+			
+			.arrow{
+				width: 40px;
+				text-align: center;
+				margin: 10px auto 0 auto;
+				display: block;
+
+				&.up-arrow{
+					@include transform(rotate(180deg));
+				}
+			}
+			p{
+				text-align: center;
+				margin: 10px auto;
+				display: block;
+				color: white;
+			}
 		}
 	}
 }

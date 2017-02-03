@@ -119,12 +119,63 @@ div {
     .stage-title {
       font: normal normal 300 32px/34px Arial, sans-serif; } }
 
+.cta p {
+  text-transform: uppercase;
+  font: normal normal 300 14px/28px Arial, sans-serif; }
+  @media screen and (min-width: 2001px) {
+    .cta p {
+      font: normal normal 300 20.2px/40.4px Arial, sans-serif; } }
+  @media screen and (min-width: 1600px) and (max-width: 2000px) {
+    .cta p {
+      font: normal normal 300 20px/39px Arial, sans-serif; } }
+  @media screen and (min-width: 1441px) and (max-width: 1599px) {
+    .cta p {
+      font: normal normal 300 14px/28px Arial, sans-serif; } }
+  @media screen and (max-width: 1024px) {
+    .cta p {
+      font: normal normal 300 14px/28px Arial, sans-serif; } }
+  @media screen and (max-width: 880px) {
+    .cta p {
+      font: normal normal 300 14px/28px Arial, sans-serif; } }
+  @media screen and (max-width: 992px) {
+    .cta p {
+      font: normal normal 300 10.5px/21px Arial, sans-serif; } }
+  @media screen and (max-width: 768px) {
+    .cta p {
+      font: normal normal 300 10.5px/21px Arial, sans-serif; } }
+  @media screen and (max-width: 600px) {
+    .cta p {
+      font: normal normal 300 14px/28px Arial, sans-serif; } }
+
 #architecture .container {
   position: relative;
-  height: 100%; }
-  #architecture .container img#data-chart {
+  height: 93.75vh; }
+  #architecture .container div#page-1 {
     width: 80%;
-    height: auto; }
+    height: auto;
+    margin-top: 8vh; }
+  #architecture .container img#data-chart {
+    width: 100%;
+    height: auto;
+    margin-top: 8vh; }
+  #architecture .container .cta {
+    cursor: pointer; }
+    #architecture .container .cta .arrow {
+      width: 40px;
+      text-align: center;
+      margin: 10px auto 0 auto;
+      display: block; }
+      #architecture .container .cta .arrow.up-arrow {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg); }
+    #architecture .container .cta p {
+      text-align: center;
+      margin: 10px auto;
+      display: block;
+      color: white; }
 
 header {
   width: 100%;
@@ -2057,6 +2108,26 @@ section {
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
+
+.absolute-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%); }
+
+.absolute-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%); }
 
 .no-focus:focus {
   outline: none !important;

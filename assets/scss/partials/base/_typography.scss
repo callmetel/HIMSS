@@ -100,3 +100,31 @@ div{
 	}
 }
 
+.cta p{
+	text-transform: uppercase;
+	font: $rg-dropdown-link;
+	@include media($xl-desktop){
+		font: $xl-dropdown-link;
+	}
+	@include media($lg-desktop){
+		font: $lg-dropdown-link;
+	}
+	@include media($md-desktop){
+		font: $rg-dropdown-link;
+	}
+	@include media($lg-mobile){
+		font: $rg-dropdown-link;
+	}
+	@include media($md-mobile){
+		font: $rg-dropdown-link;
+	}
+	@include media($mobile){
+		font: $md-dropdown-link;
+	}
+	@include media($sm-mobile){
+		font: $md-dropdown-link;
+	}
+	@include media($xs-mobile){
+		font: $rg-dropdown-link;
+	}
+}
