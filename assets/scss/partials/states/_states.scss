@@ -65,6 +65,14 @@
 	@include transition(all 1.25s $ease-in-out-quart);
 }
 
+.no-transition{
+	@include transition(transform .35s ease-in-out !important);
+}
+
+.no-stroke-width{
+	stroke-width:0!important;
+}
+
 // .is-previous-section{
 // 	@include transform(translateY(50%)!important);
 // 	opacity: 0;

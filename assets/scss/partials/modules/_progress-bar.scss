@@ -4,7 +4,39 @@
 	.container{
 		position: relative;
 
-		svg{
+		#play{
+			width:45px;
+			height:45px;
+			cursor: pointer;
+			
+			#button-background{
+				fill: $darkblue;
+				@include transition(all .45s ease-in-out);
+			}
+			path{
+				fill:$green;
+				@include transition(all .45s ease-in-out);
+			}
+			
+			&:hover,{
+				#button-background{
+					fill: $lightblue;
+				}
+				path{
+					fill: $lightblue;
+				}
+			}
+			&.is-playing{
+				#button-background{
+					fill: $lightblue;
+				}
+				path{
+					fill: $lightblue;
+				}
+			}
+		}
+
+		svg:last-child{
 			width:90%;
 
 			#current-progress{
