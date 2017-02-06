@@ -1,5 +1,32 @@
 $(document).ready(function() {
 
+	var tm = TweenMax;
+
+	//========  Architecture Functions  ======
+	//===========================================
+	
+		// Set Initial Animation States
+		 
+			tm.set('#page-2', {alpha:0, zIndex:-1});
+			tm.set('.pie-chart', {alpha:0});
+
+		// CTA Click Functions
+
+		$('#page-1 .cta').on('click', function(){
+			tm.fromTo('#page-1', 1, {alpha:1, y:0}, {alpha:0, y:-20, zIndex:-1, ease:Power1.easeOut});
+			tm.fromTo('#page-2', 1, {alpha:0, y:20}, {alpha:1, y:0, zIndex:1, ease:Power1.easeInOut, delay:.5});
+			tm.fromTo('.pie-chart:eq(1)', 1, {alpha:0, scale:.1}, {alpha:1, scale:1, ease: Back.easeInOut.config(2), delay:1});
+			tm.fromTo('.pie-chart:eq(2)', 1, {alpha:0}, {alpha:1, ease: Power1.easeOut, delay:2});
+			tm.fromTo('.pie-chart:eq(0)', 1, {alpha:0, scale:.1}, {alpha:1, scale:1, ease: Back.easeInOut.config(1.4), delay:2.1});
+			tm.fromTo('.pie-chart:eq(4)', 1, {alpha:0, scale:.9}, {alpha:1, scale:1, ease: Back.easeInOut.config(2), delay:2.6});
+			tm.fromTo('.pie-chart:eq(3)', 1, {alpha:0}, {alpha:1, ease: Power1.easeOut, delay:3.25});
+		});
+
+		$('#page-2 .cta').on('click', function(){
+			tm.fromTo('#page-2', 1, {alpha:1, y:0}, {alpha:0, y:20, zIndex:-1, ease:Power1.easeInOut});
+			tm.fromTo('#page-1', 1, {alpha:0}, {alpha:1, zIndex:1, ease:Power1.easeOut, delay:.5});
+		});
+
 	//========   Nav Menu Click Functions  ======
 	//===========================================
 	
@@ -45,7 +72,6 @@ $(document).ready(function() {
 			timer,
 			draw,
 			longTimer,
-			tm = TweenMax,
 			tl = new TimelineMax({paused: true}),
 			s1 = $('#stage-1'),
 			s2 = $('#stage-2'),

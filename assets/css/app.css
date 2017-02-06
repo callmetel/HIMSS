@@ -152,12 +152,28 @@ div {
   height: 93.75vh; }
   #architecture .container div#page-1 {
     width: 80%;
-    height: auto;
-    margin-top: 8vh; }
-  #architecture .container img#data-chart {
-    width: 100%;
-    height: auto;
-    margin-top: 8vh; }
+    height: 100%;
+    margin-top: 4vh; }
+    #architecture .container div#page-1 img#data-chart {
+      width: 100%;
+      height: auto; }
+  #architecture .container div#page-2 {
+    width: 80%;
+    height: 100%;
+    margin-top: 4vh; }
+    #architecture .container div#page-2 #pie-chart {
+      position: relative;
+      width: 80%; }
+      #architecture .container div#page-2 #pie-chart .pie-chart {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+        width: 100%; }
   #architecture .container .cta {
     cursor: pointer; }
     #architecture .container .cta .arrow {

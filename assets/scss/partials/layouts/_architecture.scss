@@ -5,13 +5,29 @@
 		
 		div#page-1{
 			width: 80%;
-			height: auto;
-			margin-top:8vh;
+			height: 100%;
+			margin-top:4vh;
+
+			img#data-chart{
+				width: 100%;
+				height: auto;
+			}
 		}
-		img#data-chart{
-			width: 100%;
-			height: auto;
-			margin-top:8vh;
+
+		div#page-2{
+			width: 80%;
+			height: 100%;
+			margin-top:4vh;
+
+			#pie-chart{
+				position: relative;
+				width:80%;
+				.pie-chart{
+					@include position(absolute, 20px null null 50%);
+					@include transform(translateX(-50%));
+					width:100%;
+				}
+			}
 		}
 
 		.cta{
