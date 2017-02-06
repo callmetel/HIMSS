@@ -39,7 +39,7 @@
 .is-inactive{
 	display: none;
 	opacity: 0;
-	@include transition(all .5s ease-in-out);
+	z-index: -100;
 }
 .is-visible{
 	visibility: visible;

@@ -12,20 +12,22 @@ $(document).ready(function() {
 
 		// CTA Click Functions
 
-		$('#page-1 .cta').on('click', function(){
-			tm.fromTo('#page-1', 1, {alpha:1, y:0}, {alpha:0, y:-20, zIndex:-1, ease:Power1.easeOut});
-			tm.fromTo('#page-2', 1, {alpha:0, y:20}, {alpha:1, y:0, zIndex:1, ease:Power1.easeInOut, delay:.5});
-			tm.fromTo('.pie-chart:eq(1)', 1, {alpha:0, scale:.1}, {alpha:1, scale:1, ease: Back.easeInOut.config(2), delay:1});
-			tm.fromTo('.pie-chart:eq(2)', 1, {alpha:0}, {alpha:1, ease: Power1.easeOut, delay:2});
-			tm.fromTo('.pie-chart:eq(0)', 1, {alpha:0, scale:.1}, {alpha:1, scale:1, ease: Back.easeInOut.config(1.4), delay:2.1});
-			tm.fromTo('.pie-chart:eq(4)', 1, {alpha:0, scale:.9}, {alpha:1, scale:1, ease: Back.easeInOut.config(2), delay:2.6});
-			tm.fromTo('.pie-chart:eq(3)', 1, {alpha:0}, {alpha:1, ease: Power1.easeOut, delay:3.25});
-		});
+			$('#page-1 .cta').on('click', function(){
+				$('#page-2').addClass('page-is-active');
+				tm.fromTo('#page-1', 1, {alpha:1, y:0}, {alpha:0, y:-20, zIndex:-1, ease:Power1.easeOut});
+				tm.fromTo('#page-2', 1, {alpha:0, y:20}, {alpha:1, y:0, zIndex:1, ease:Power1.easeInOut, delay:.5});
+				tm.fromTo('.pie-chart:eq(1)', 1, {alpha:0, scale:.1}, {alpha:1, scale:1, ease: Back.easeInOut.config(2), delay:1});
+				tm.fromTo('.pie-chart:eq(2)', 1, {alpha:0}, {alpha:1, ease: Power1.easeOut, delay:2});
+				tm.fromTo('.pie-chart:eq(0)', 1, {alpha:0, scale:.1}, {alpha:1, scale:1, ease: Back.easeInOut.config(1.4), delay:2.1});
+				tm.fromTo('.pie-chart:eq(4)', 1, {alpha:0, scale:.9}, {alpha:1, scale:1, ease: Back.easeInOut.config(2), delay:2.6});
+				tm.fromTo('.pie-chart:eq(3)', 1, {alpha:0}, {alpha:1, ease: Power1.easeOut, delay:3.25});
+			});
 
-		$('#page-2 .cta').on('click', function(){
-			tm.fromTo('#page-2', 1, {alpha:1, y:0}, {alpha:0, y:20, zIndex:-1, ease:Power1.easeInOut});
-			tm.fromTo('#page-1', 1, {alpha:0}, {alpha:1, zIndex:1, ease:Power1.easeOut, delay:.5});
-		});
+			$('#page-2 .cta').on('click', function(){
+				$('#page-2').removeClass('page-is-active');
+				tm.fromTo('#page-2', 1, {alpha:1, y:0}, {alpha:0, y:20, zIndex:-1, ease:Power1.easeInOut});
+				tm.fromTo('#page-1', 1, {alpha:0, y:-20}, {alpha:1, y:0, zIndex:1, ease:Power1.easeOut, delay:.5});
+			});
 
 	//========   Nav Menu Click Functions  ======
 	//===========================================
@@ -36,6 +38,12 @@ $(document).ready(function() {
 			$('#scenarios-video')[0].pause();
 			$('#medicity-network').removeClass('is-next-section is-previous-section').addClass('is-current-section');
 			$('#scenarios, #architecture, #solutions').removeClass('is-current-section is-next-section is-previous-section').addClass('is-next-section');
+			
+			if($('#page-2').hasClass('page-is-active')){
+				setTimeout(function(){
+					$('#page-2 .cta').trigger('click');
+				}, 1000);
+			};
 		});
 		$('.menu-item:eq(1)').on('click', function(){
 			$('#menu').removeClass().addClass('tab2-is-active');
@@ -61,6 +69,25 @@ $(document).ready(function() {
 			$('#menu').removeClass().addClass('tab4-is-active');
 			$('#solutions').removeClass('is-next-section is-previous-section').addClass('is-current-section');
 			$('#scenarios, #architecture, #medicity-network').removeClass('is-current-section is-next-section is-previous-section').addClass('is-previous-section');
+		});
+
+	//========  Contact Form Functions  ======
+	//===========================================
+		tm.set('#contact-form', {background:'rgba(0,0,0,0.8)'});
+		tm.set('.form-container', {alpha:1, y:0});
+		
+		$('#contact-form').on('click', function(){
+			console.log('contact form clicked');
+			tm.fromTo('#contact-form', 1, {background:'rgba(0,0,0,0.8)'}, {background:'transparent', ease:Power1.easeOut});
+			tm.fromTo('.form-container', 1, {alpha:1, y:0}, {alpha:0, y:20, ease:Power1.easeOut});
+			tm.set('#contact-form', {className:'+=is-inactive', delay:2});
+		});
+
+		$('#form-btn').on('click', function(){
+			console.log('form button clicked');
+			tm.set('#contact-form', {className:'-=is-inactive'});
+			tm.fromTo('#contact-form', 1, {background:'rgba(0,0,0,0)'}, {background:'rgba(0,0,0,0.8)', ease:Power1.easeOut, delay:.25});
+			tm.fromTo('.form-container', 1, {alpha:0, y:20}, {alpha:1, y:0, ease:Power1.easeOut, delay:.75});
 		});
 
 	//========  Map Animation Functions  ======
