@@ -4,6 +4,7 @@
 	width: 5vw;
 	height: auto;
 	cursor: pointer;
+	@include transition(opacity .45s ease-in-out);
 }
 #contact-form{
 	width: 100vw;

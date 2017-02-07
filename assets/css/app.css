@@ -10,6 +10,15 @@ body {
   height: 100vh;
   overflow: hidden;
   background: #2f2f2f; }
+  body.demo-open a.demo-exit {
+    opacity: 1 !important;
+    pointer-events: auto !important; }
+  body.demo-open #logo {
+    opacity: 0;
+    z-index: -100; }
+  body.demo-open #form-btn {
+    opacity: 0;
+    z-index: -100; }
 
 * {
   margin: 0;
@@ -200,7 +209,10 @@ div {
   z-index: 1000;
   width: 5vw;
   height: auto;
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-transition: opacity 0.45s ease-in-out;
+  -moz-transition: opacity 0.45s ease-in-out;
+  transition: opacity 0.45s ease-in-out; }
 
 #contact-form {
   width: 100vw;
@@ -236,7 +248,10 @@ header {
       min-height: 40px;
       height: 3.45vh;
       background-image: url("../images/medicity-logo.svg");
-      background-size: cover; }
+      background-size: cover;
+      -webkit-transition: all 0.6s ease-in-out;
+      -moz-transition: all 0.6s ease-in-out;
+      transition: all 0.6s ease-in-out; }
       @media screen and (min-width: 1600px) and (max-width: 2000px) {
         header .header-container #logo {
           width: 199px;
@@ -245,10 +260,49 @@ header {
         header .header-container #logo {
           width: 199px;
           height: 70px; } }
+    header .header-container a.demo-exit, header .header-container a.demo-back {
+      -webkit-transition: opacity 0.6s ease-in, background 0.15s ease-out, border-color 0.15s ease-out, fill 0.15s ease-out, rotate 0.1s ease-in, color 0.15s ease-out, -webkit-transform 0.6s ease-in;
+      -moz-transition: opacity 0.6s ease-in, background 0.15s ease-out, border-color 0.15s ease-out, fill 0.15s ease-out, rotate 0.1s ease-in, color 0.15s ease-out, -moz-transform 0.6s ease-in;
+      transition: opacity 0.6s ease-in, background 0.15s ease-out, border-color 0.15s ease-out, fill 0.15s ease-out, rotate 0.1s ease-in, color 0.15s ease-out, transform 0.6s ease-in;
+      display: block;
+      width: 100%;
+      opacity: 0;
+      pointer-events: none; }
+      header .header-container a.demo-exit:before, header .header-container a.demo-exit:after, header .header-container a.demo-back:before, header .header-container a.demo-back:after {
+        content: " ";
+        display: table;
+        clear: both; }
+      header .header-container a.demo-exit .icon-x, header .header-container a.demo-exit .icon-back, header .header-container a.demo-back .icon-x, header .header-container a.demo-back .icon-back {
+        width: 46px;
+        height: 46px;
+        border: solid 2px #2f2f2f;
+        border-radius: 50%;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        position: relative; }
+        header .header-container a.demo-exit .icon-x svg, header .header-container a.demo-exit .icon-back svg, header .header-container a.demo-back .icon-x svg, header .header-container a.demo-back .icon-back svg {
+          fill: #2985ae;
+          width: 18px; }
+      header .header-container a.demo-exit span, header .header-container a.demo-back span {
+        display: inline-block;
+        text-transform: uppercase;
+        vertical-align: middle;
+        font-family: Arial, sans-serif;
+        font-weight: 700;
+        line-height: 46px;
+        margin-left: 10px;
+        font-size: 22px;
+        color: #2f2f2f; }
 
 .container {
   width: 93vw;
   margin: 0 auto; }
+
+.full-container {
+  width: 100vw;
+  margin: 0;
+  height: 100%; }
 
 section {
   height: 100%;
@@ -1127,6 +1181,119 @@ section {
     opacity: 0; }
     #scenarios #buttons-container button.fade-in {
       opacity: 1; }
+
+#solutions {
+  width: 100%; }
+  #solutions .full-container {
+    position: relative; }
+    #solutions .full-container .container {
+      position: relative;
+      height: 100%; }
+      #solutions .full-container .container .solutions__list {
+        width: 100%; }
+        #solutions .full-container .container .solutions__list .list__container .list__item {
+          width: 15.5%;
+          padding-left: 15px;
+          padding-right: 15px;
+          position: relative;
+          float: left; }
+          #solutions .full-container .container .solutions__list .list__container .list__item.hover .icon_circle {
+            background-color: #2985ae;
+            border-color: #2985ae;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            color: #fff; }
+            #solutions .full-container .container .solutions__list .list__container .list__item.hover .icon_circle .circle {
+              fill: none; }
+          #solutions .full-container .container .solutions__list .list__container .list__item.hover ul {
+            left: 0;
+            pointer-events: auto;
+            opacity: 1; }
+          #solutions .full-container .container .solutions__list .list__container .list__item .icon_circle {
+            cursor: pointer;
+            display: block;
+            text-align: center;
+            width: 100%;
+            border-radius: 50%;
+            height: auto;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-transition: all 0.45s ease-out;
+            -moz-transition: all 0.45s ease-out;
+            transition: all 0.45s ease-out; }
+            #solutions .full-container .container .solutions__list .list__container .list__item .icon_circle .circle {
+              fill: #fff;
+              -webkit-transition: all 0.45s ease-out;
+              -moz-transition: all 0.45s ease-out;
+              transition: all 0.45s ease-out; }
+          #solutions .full-container .container .solutions__list .list__container .list__item ul {
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 100%;
+            left: -5%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            padding-top: 15px;
+            padding-bottom: 45px;
+            -webkit-transition: all 0.45s ease-out;
+            -moz-transition: all 0.45s ease-out;
+            transition: all 0.45s ease-out; }
+            #solutions .full-container .container .solutions__list .list__container .list__item ul li {
+              list-style: none;
+              position: relative;
+              padding-left: 30px;
+              margin-bottom: 10px;
+              font-weight: bold;
+              font-family: Arial;
+              font-size: 16px;
+              text-decoration: none; }
+              #solutions .full-container .container .solutions__list .list__container .list__item ul li:before {
+                content: "";
+                speak: none;
+                background-image: url("../images/list-arrow.svg");
+                background: contain;
+                width: 16px;
+                height: 14px;
+                text-align: right;
+                text-transform: none;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 16px;
+                position: absolute;
+                top: 2px;
+                left: 0;
+                line-height: 1.25;
+                -webkit-transition: all 0.25s ease-out;
+                -moz-transition: all 0.25s ease-out;
+                transition: all 0.25s ease-out; }
+              #solutions .full-container .container .solutions__list .list__container .list__item ul li:hover a {
+                color: #2985ae; }
+              #solutions .full-container .container .solutions__list .list__container .list__item ul li:hover:before {
+                background-image: url("../images/list-arrow-blue.svg"); }
+              #solutions .full-container .container .solutions__list .list__container .list__item ul li a {
+                text-decoration: none;
+                -webkit-transition: all 0.25s ease-out;
+                -moz-transition: all 0.25s ease-out;
+                transition: all 0.25s ease-out; }
+    #solutions .full-container .solutions__demos {
+      width: 100%;
+      height: 100%;
+      z-index: 100; }
+      #solutions .full-container .solutions__demos iframe {
+        width: 100%;
+        height: 100%; }
+      #solutions .full-container .solutions__demos .loading {
+        width: 100px;
+        height: auto; }
 
 .move-back {
   -webkit-animation: fadein 1s ease-out;

@@ -1,0 +1,144 @@
+#solutions{
+	width:100%;
+
+	.full-container{
+		position: relative;
+
+		.container{
+			position: relative;
+
+			height:100%;
+			.solutions__list{
+				width: 100%;
+
+				.list__container{
+
+					.list__item{
+						width: 15.5%;
+					    padding-left: 15px;
+					    padding-right: 15px;
+					    position: relative;
+					    float: left;
+
+					    &.hover{
+					    	.icon_circle{
+								background-color: $blue;
+							    border-color: $blue;
+							    box-shadow: 4px 4px 8px rgba(0, 0, 0, .2);
+							    text-decoration: none;
+							    color: #fff;
+
+							    .circle{
+							    	fill: none;
+							    }
+						    }
+
+					    	ul{
+						    	left: 0;
+							    pointer-events: auto;
+							    opacity: 1;	 
+					    	}
+					    }
+
+					    .icon_circle{
+					    	cursor: pointer;
+						    display: block;
+						    text-align: center;
+						    width: 100%;
+						    border-radius: 50%;
+						    height: auto;
+						    display: -webkit-flex;
+						    display: -ms-flexbox;
+						    display: flex;
+						    -webkit-align-items: center;
+						    -ms-flex-align: center;
+						    align-items: center;
+						    -webkit-justify-content: center;
+						    -ms-flex-pack: center;
+						    justify-content: center;
+						    @include transition(all .45s ease-out);
+
+						    .circle{
+						    	fill: #fff;
+						    	@include transition(all .45s ease-out);
+						    }
+					    }
+
+					    ul{
+					    	opacity: 0;
+						    pointer-events: none;
+						    @include position(absolute, 100% null null -5%);
+						    width: 100%;
+						    padding: 0;
+						    margin: 0;
+						    padding-top: 15px;
+						    padding-bottom: 45px;
+						    @include transition(all .45s ease-out);
+
+							li{
+								list-style: none;
+							    position: relative;
+							    padding-left: 30px;
+							    margin-bottom: 10px;
+							    font-weight: bold;
+							    font-family: Arial;
+							    font-size: 16px;
+							    text-decoration: none;
+
+							    &:before {
+								    content: "";
+								    speak: none;
+								    background-image: url('../images/list-arrow.svg');
+								    background: contain;
+									width: 16px;
+									height: 14px;
+									text-align: right;
+								    text-transform: none;
+								    -webkit-font-smoothing: antialiased;
+								    -moz-osx-font-smoothing: grayscale;
+								    font-size: 16px;
+								    position: absolute;
+								    top: 2px;
+								    left: 0;
+								    line-height: 1.25;
+								    @include transition(all .25s ease-out);
+								}
+
+								&:hover{
+									a{
+										color: $blue;	
+									}
+									&:before {
+									    background-image: url('../images/list-arrow-blue.svg');
+									}
+								}
+
+								a{
+									text-decoration: none;
+									@include transition(all .25s ease-out);
+								}
+							}
+
+					    }
+					}
+				}
+			}	
+		}
+
+		.solutions__demos{
+			width: 100%;
+			height:100%;
+			z-index: 100;
+
+			iframe{
+				width: 100%;
+				height: 100%;
+			}
+
+			.loading{
+				width: 100px;
+				height: auto;
+			}
+		}	
+	}
+}

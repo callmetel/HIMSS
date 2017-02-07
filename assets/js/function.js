@@ -33,6 +33,7 @@ $(document).ready(function() {
 	//===========================================
 	
 		$('.menu-item:eq(0)').on('click', function(){
+			closeSolutionsDemo();
 			$('#scenarios-video').removeClass('fade-in');
 			$('#menu').removeClass().addClass('tab1-is-active');
 			$('#scenarios-video')[0].pause();
@@ -46,6 +47,7 @@ $(document).ready(function() {
 			};
 		});
 		$('.menu-item:eq(1)').on('click', function(){
+			closeSolutionsDemo();
 			$('#menu').removeClass().addClass('tab2-is-active');
 			$('#scenarios').removeClass('is-next-section is-previous-section').addClass('is-current-section');
 			$('#medicity-network').removeClass('is-current-section').addClass('is-previous-section');
@@ -59,6 +61,7 @@ $(document).ready(function() {
 			}, 1500);
 		});
 		$('.menu-item:eq(2)').on('click', function(){
+			closeSolutionsDemo();
 			$('#menu').removeClass().addClass('tab3-is-active');
 			$('#scenarios-video')[0].pause();
 			$('#architecture').removeClass('is-next-section is-previous-section').addClass('is-current-section');
@@ -1486,4 +1489,82 @@ $(document).ready(function() {
 					console.log('auto playing');
 				}
 			});
+
+	//========  Solutions Functions  ===========
+	//===========================================
+	
+		tm.set('.solutions__demos', {alpha:0});
+		tm.set('.solutions__demos > iframe', {alpha:0});
+		tm.set('.solutions__demos > .loading', {alpha:1});
+
+		$('.list__item').mouseover(function(e) {
+			$(this).addClass('hover');
+		}).mouseout(function(e) {
+			$(this).removeClass('hover');
+		});
+
+		$(".list__item a").on("click", function(e) {
+			e.preventDefault();
+			var src = $(this).attr("href");
+            // if (a.preventDefault(), $(this).hasClass("scenario__box")) {
+            //     var b = $(this).data("intermediary");
+            //     $(".demo-exit").addClass("has-intermediary").data("intermediary", b)
+            // }
+            // var c = $(this).attr("href");
+            // $("#demo-container").addClass("open"), $("#demo-container iframe").attr("src", c), $("body").addClass("demo-open"), $.fn.fullpage.setAllowScrolling(!1)
+
+            $(".solutions__demos").removeClass('is-inactive').addClass("open");
+            tm.fromTo('.solutions__list', .5, {alpha:1}, {alpha:0, zIndex:-100, ease:Power1.easeInOut});
+            tm.fromTo('.solutions__demos', 1, {alpha:0}, {alpha:1, ease:Power1.easeInOut});
+            tm.fromTo('.solutions__demos > .loading', 1.5, {y:'-25%'}, {y:'-50%', ease:Power1.easeInOut});
+            $("body").addClass("demo-open");
+
+            $(".solutions__demos > iframe").attr("src", src);
+            	
+
+        // }), $(".demo-exit").on("click", function(a) {
+        //     if (a.preventDefault(), $(this).hasClass("has-intermediary")) {
+        //         var b = $(this).data("intermediary");
+        //         $("#demo-container").removeClass("open"), $(".intermediary." + b).addClass("visible"), $(this).addClass("hidden").removeClass("has-intermediary"), $(".demo-back").addClass("visible")
+        //     } else $("#demo-container").removeClass("open"), $("body").removeClass("demo-open"), $.fn.fullpage.setAllowScrolling(!0);
+        //     setTimeout(function() {
+        //         $("#demo-container iframe").attr("src", "")
+        //     }, 900)
+        // }), $(".demo-back").on("click", function(a) {
+        //     a.preventDefault(), $(".intermediary").removeClass("visible"), $("body").removeClass("demo-open"), $.fn.fullpage.setAllowScrolling(!0), $(".demo-exit").removeClass("hidden"), $(this).removeClass("visible")
+        });
+
+        $(".solutions__demos > iframe").on('load', function(){
+        	if($('body').hasClass('demo-open')){
+        		$(".solutions__demos > iframe").removeClass('is-inactive');
+        		tm.fromTo('.solutions__demos > .loading', 1, {alpha:1}, {alpha:0, ease:Power1.easeInOut, delay:.5});
+        		tm.fromTo('.solutions__demos > iframe', 1, {alpha:0}, {alpha:1, ease:Power1.easeInOut, delay:.5});
+				console.log('solutions demo is opened');
+        	} else {
+        		console.log('solutions demo is closed');
+        	}
+        });
+
+        $('.demo-exit').on('click', function(e){
+        	e.preventDefault();
+
+        	closeSolutionsDemo();
+        });
+
+        function closeSolutionsDemo(){
+        	if($('.solutions__demos').hasClass('open')){
+	            tm.fromTo('.solutions__demos', .5, {alpha:1}, {alpha:0, ease:Power1.easeInOut});
+	            tm.fromTo('.solutions__list', 1, {alpha:0, zIndex:-100, y:'-25%'}, {alpha:1, zIndex:'inherit', y:'-50%', ease:Power1.easeInOut});
+	            
+	            setTimeout(function(){
+	            	$("body").removeClass("demo-open");
+	 				$('.solutions__demos').removeClass('open').addClass('is-inactive');
+		            $(".solutions__demos > iframe").attr("src", "");
+		            tm.set('.solutions__demos', {alpha:0});
+					tm.set('.solutions__demos > iframe', {alpha:0});
+					tm.set('.solutions__demos > .loading', {alpha:1});
+	            }, 1250);
+        	};
+        }
+	
 });

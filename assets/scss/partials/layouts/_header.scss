@@ -22,6 +22,7 @@ header{
 			height: 3.45vh;
 			background-image: url('../images/medicity-logo.svg');
 			background-size: cover;
+			@include transition(all .6s ease-in-out);
 
 			@include media($lg-desktop){
 				width: 199px;
@@ -32,6 +33,48 @@ header{
 				height: 70px;
 			}
 
+		}
+
+		a.demo-exit, a.demo-back {
+		    @include transition(opacity .6s ease-in,background .15s ease-out, border-color .15s ease-out,fill .15s ease-out,rotate .1s ease-in,color .15s ease-out,transform .6s ease-in);
+		    display: block;
+		    width: 100%;
+		    opacity: 0;
+		    pointer-events: none;
+
+		    &:before, &:after {
+		    	content: " ";
+    			display: table;
+			    clear: both;
+			}
+
+		    .icon-x, .icon-back {
+			    width: 46px;
+			    height: 46px;
+			    border: solid 2px $gray;
+			    border-radius: 50%;
+			    display: inline-block;
+			    vertical-align: middle;
+			    text-align: center;
+			    position: relative;
+
+			    svg {
+				    fill: $blue;
+				    width: 18px;
+				}
+			}
+
+			span {
+			    display: inline-block;
+			    text-transform: uppercase;
+			    vertical-align: middle;
+			    font-family: Arial, sans-serif;
+			    font-weight: 700;
+			    line-height: 46px;
+			    margin-left: 10px;
+			    font-size: 22px;
+			    color:$gray;
+			}
 		}
 
 	}

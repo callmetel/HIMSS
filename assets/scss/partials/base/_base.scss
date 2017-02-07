@@ -7,6 +7,22 @@ body{
 	height:100vh;
 	overflow:hidden;
 	background: $gray;
+
+    &.demo-open{
+        a.demo-exit {
+            opacity: 1!important;
+            pointer-events: auto!important;
+        }
+        #logo{
+            opacity:0;
+            z-index: -100;
+        }
+
+        #form-btn{
+            opacity:0;
+            z-index: -100;
+        }
+    }
 }
 
 * {
