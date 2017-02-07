@@ -1504,8 +1504,18 @@ $(document).ready(function() {
 		});
 
 		$(".list__item a").on("click", function(e) {
-			e.preventDefault();
 			var src = $(this).attr("href");
+
+			if($(this).parents('.list__item').hasClass('internal-demos')){
+				e.preventDefault();
+				$(".solutions__demos").removeClass('is-inactive').addClass("open");
+	            tm.fromTo('.solutions__list', .5, {alpha:1}, {alpha:0, zIndex:-100, ease:Power1.easeInOut});
+	            tm.fromTo('.solutions__demos', 1, {alpha:0}, {alpha:1, ease:Power1.easeInOut});
+	            tm.fromTo('.solutions__demos > .loading', 1.5, {y:'-25%', x:'-50%'}, {y:'-50%', x:'-50%', ease:Power1.easeInOut});
+	            $("body").addClass("demo-open");
+	            $(".solutions__demos > iframe").attr("src", src);
+			};
+			
             // if (a.preventDefault(), $(this).hasClass("scenario__box")) {
             //     var b = $(this).data("intermediary");
             //     $(".demo-exit").addClass("has-intermediary").data("intermediary", b)
@@ -1513,13 +1523,7 @@ $(document).ready(function() {
             // var c = $(this).attr("href");
             // $("#demo-container").addClass("open"), $("#demo-container iframe").attr("src", c), $("body").addClass("demo-open"), $.fn.fullpage.setAllowScrolling(!1)
 
-            $(".solutions__demos").removeClass('is-inactive').addClass("open");
-            tm.fromTo('.solutions__list', .5, {alpha:1}, {alpha:0, zIndex:-100, ease:Power1.easeInOut});
-            tm.fromTo('.solutions__demos', 1, {alpha:0}, {alpha:1, ease:Power1.easeInOut});
-            tm.fromTo('.solutions__demos > .loading', 1.5, {y:'-25%', x:'-50%'}, {y:'-50%', x:'-50%', ease:Power1.easeInOut});
-            $("body").addClass("demo-open");
-
-            $(".solutions__demos > iframe").attr("src", src);
+            
             	
 
         // }), $(".demo-exit").on("click", function(a) {
@@ -1563,7 +1567,7 @@ $(document).ready(function() {
 		            tm.set('.solutions__demos', {alpha:0});
 					tm.set('.solutions__demos > iframe', {alpha:0});
 					tm.set('.solutions__demos > .loading', {alpha:1});
-	            }, 1250);
+	            }, 1000);
         	};
         }
 	
