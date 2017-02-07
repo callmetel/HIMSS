@@ -63,17 +63,21 @@
 
 
 .is-previous-section{
-	@include transform(translateX(-100vw)!important);
+	@include transform(translateX(-5vh)!important);
+	opacity: 0!important;
 	// z-index: -3000!important;
 	@include transition(all 1.25s $ease-in-out-quart);
 }
 .is-current-section{
 	@include transform(translateX(0)!important);
 	@include transition(all 1.25s $ease-in-out-quart);
+	opacity:1!important;
+	@include transition-delay(.5s);
 }
 .is-next-section{
-	@include transform(translateX(100vw)!important);
+	@include transform(translateX(5vh)!important);
 	@include transition(all 1.25s $ease-in-out-quart);
+	opacity: 0!important;
 }
 
 .no-transition{
