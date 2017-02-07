@@ -1516,7 +1516,7 @@ $(document).ready(function() {
             $(".solutions__demos").removeClass('is-inactive').addClass("open");
             tm.fromTo('.solutions__list', .5, {alpha:1}, {alpha:0, zIndex:-100, ease:Power1.easeInOut});
             tm.fromTo('.solutions__demos', 1, {alpha:0}, {alpha:1, ease:Power1.easeInOut});
-            tm.fromTo('.solutions__demos > .loading', 1.5, {y:'-25%'}, {y:'-50%', ease:Power1.easeInOut});
+            tm.fromTo('.solutions__demos > .loading', 1.5, {y:'-25%', x:'-50%'}, {y:'-50%', x:'-50%', ease:Power1.easeInOut});
             $("body").addClass("demo-open");
 
             $(".solutions__demos > iframe").attr("src", src);
@@ -1554,7 +1554,7 @@ $(document).ready(function() {
         function closeSolutionsDemo(){
         	if($('.solutions__demos').hasClass('open')){
 	            tm.fromTo('.solutions__demos', .5, {alpha:1}, {alpha:0, ease:Power1.easeInOut});
-	            tm.fromTo('.solutions__list', 1, {alpha:0, zIndex:-100, y:'-25%'}, {alpha:1, zIndex:'inherit', y:'-50%', ease:Power1.easeInOut});
+	            tm.fromTo('.solutions__list', 1, {alpha:0, zIndex:-100, x:'-50%', y:'-25%'}, {alpha:1, zIndex:'inherit', x:'-50%', y:'-50%', ease:Power1.easeInOut});
 	            
 	            setTimeout(function(){
 	            	$("body").removeClass("demo-open");
