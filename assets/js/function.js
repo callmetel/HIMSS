@@ -48,7 +48,16 @@ $(document).ready(function() {
 	//========   Nav Menu Click Functions  ======
 	//===========================================
 	
+		function menuBlocker(){
+			$('.menu-blocker').addClass('is-blocking');
+
+			setTimeout(function(){
+				$('.menu-blocker').removeClass('is-blocking');
+			}, 2000);
+		}
+
 		$('.menu-item:eq(0)').on('click', function(){
+			menuBlocker();
 			closeSolutionsDemo();
 			$('#sections').prepend(MedicityNetworkContent);
 			if($('#sections').hasClass('medicity-network')){
@@ -75,6 +84,7 @@ $(document).ready(function() {
 			};
 		});
 		$('.menu-item:eq(1)').on('click', function(){
+			menuBlocker();
 			closeSolutionsDemo();
 			$('#sections').prepend(ScenariosContent);
 			InitScenarios();
@@ -96,6 +106,7 @@ $(document).ready(function() {
 			},2000);
 		});
 		$('.menu-item:eq(2)').on('click', function(){
+			menuBlocker();
 			closeSolutionsDemo();
 			$('#sections').prepend(ArchitectureContent);
 			InitArchitecture();
@@ -118,6 +129,7 @@ $(document).ready(function() {
 			},2000);
 		});
 		$('.menu-item:eq(3)').on('click', function(){
+			menuBlocker();
 			$('#sections').prepend(SolutionsContent);
 			InitSolutions();
 			if($('#sections').hasClass('medicity-network')){

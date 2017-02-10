@@ -15,6 +15,16 @@ header{
 		height: 100%;
 		position: relative;
 		
+		.menu-blocker{
+			width: 50%;
+    		height: 100%;
+    		z-index: -1;
+
+    		&.is-blocking{
+    			z-index: 3000;
+    		}
+    
+		}
 		#logo{
 			min-width: 114px;
 			width: 7vw;

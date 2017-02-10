@@ -290,6 +290,12 @@ header {
   header .header-container {
     height: 100%;
     position: relative; }
+    header .header-container .menu-blocker {
+      width: 50%;
+      height: 100%;
+      z-index: -1; }
+      header .header-container .menu-blocker.is-blocking {
+        z-index: 3000; }
     header .header-container #logo {
       min-width: 114px;
       width: 7vw;
