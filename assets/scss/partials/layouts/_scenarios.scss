@@ -1,37 +1,199 @@
 #scenarios{
+    width:100%;
+    height: 93.75vh;
 
-    video#scenarios-video { 
-        @include position(fixed, 50% 0 0 50%);
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -1000;
-        display: inherit;
-        opacity:0;
-        @include transform(translateX(-50%) translateY(-50%));
-        background-size: cover;
-        @include transition(opacity 1s ease-in-out);
+    .full-container{
+        position: relative;
 
-        &.fade-in{
-            opacity:1
-        }
-    }
+        .container{
+            position: relative;
+            height:100%;
 
-    #buttons-container{
-        width: 100%;
-        height: 100%;
+            .scenarios__list {
+                width: 100%;
 
-        button{
-            width: 200px;
-            height: 200px;
-            border-radius: 100px;
-            opacity:0;
+                .scenarios__container{
+                    height:100%;
+                    display: block;
+                }
 
-            &.fade-in{
-                opacity:1
+                .scenario__box {
+                    display: block;
+                    position: relative;
+                    width: 33%;
+                    float: left;
+                    margin-left: .16666667%;
+                    margin-right: .16666667%;
+                    text-align: center;
+                    transition: all .15s ease-out;
+                    display: -webkit-flex;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-align-items: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    -webkit-justify-content: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+
+                    @include transition(all .5s ease-in-out);
+
+                    &:hover{
+                        svg{
+                            rect{
+                                fill: $blue;
+                            }
+                            polygon, path{
+                                fill: $orange;
+                            }
+                        }
+                        ul{
+                            @include transform(translateX(0%));
+                            pointer-events: auto;
+                            opacity: 1;  
+                        }
+                    }
+
+                    svg{
+                        width: 100%;
+                        height: 100%;
+                        @include transition(all .5s ease-in-out);
+
+                        rect, polygon, path{
+                            @include transition(all .5s ease-in-out);
+                        }
+                    }
+
+                    ul{
+                        opacity: 0;
+                        pointer-events: none;
+                        @include position(absolute, 100% null null null);
+                        margin: 0 auto;
+                        width: 100%;
+                        text-align: left;
+                        padding: 0;
+                        margin: 0;
+                        padding-top: 15px;
+                        padding-bottom: 45px;
+                        @include transition(all .45s ease-out);
+                        @include transform(translateX(-20%));
+
+                        li{
+                            list-style: none;
+                            position: relative;
+                            padding-left: 30px;
+                            margin-bottom: 10px;
+                            font-weight: bold;
+                            font-family: Arial;
+                            font-size: 16px;
+                            text-decoration: none;
+                            width: 100px;
+                            margin: 0 auto;
+
+                            &:before {
+                                content: "";
+                                speak: none;
+                                background-image: url('../images/list-arrow.svg');
+                                background-size: contain;
+                                width: 16px;
+                                height: 14px;
+                                text-align: right;
+                                text-transform: none;
+                                -webkit-font-smoothing: antialiased;
+                                -moz-osx-font-smoothing: grayscale;
+                                font-size: 16px;
+                                position: absolute;
+                                top: 2px;
+                                left: 0;
+                                line-height: 1.25;
+                                @include transition(all .25s ease-out);
+                            }
+
+                            &:hover{
+                                a{
+                                    color: $blue;   
+                                }
+                                &:before {
+                                    background-image: url('../images/list-arrow-blue.svg');
+                                }
+                            }
+
+                            a{
+                                text-decoration: none;
+                                @include transition(all .25s ease-out);
+                            }
+                        }
+
+                    }
+                }
             }
         }
-    }
 
+        .scenarios__demos{
+            width: 100%;
+            height:100%;
+            z-index: 100;
+
+            iframe{
+                width: 100%;
+                height: 100%;
+            }
+
+            .loading{
+                width: 100px;
+                height: auto;
+            }
+        }   
+    }
+    // a.takeaway-exit {
+    //     @include transition(opacity .6s ease-in,background .15s ease-out, border-color .15s ease-out,fill .15s ease-out,rotate .1s ease-in,color .15s ease-out,transform .6s ease-in);
+    //     display: block;
+    //     width: 20%;
+    //     opacity: 0;
+    //     pointer-events: none;
+    //     @include position(absolute, null null 2vh 3.5vw);
+
+    //     &:before, &:after {
+    //         content: " ";
+    //         display: table;
+    //         clear: both;
+    //         text-decoration: none;
+    //         background: transparent;
+    //     }
+
+    //     &:hover{
+
+    //     }
+
+    //     .icon-back {
+    //         width: 46px;
+    //         height: 46px;
+    //         border: solid 2px white;
+    //         border-radius: 50%;
+    //         display: inline-block;
+    //         vertical-align: middle;
+    //         text-align: center;
+    //         position: relative;
+    //         text-decoration: none;
+
+    //         svg {
+    //             fill: $orange;
+    //             width: 18px;
+    //         }
+    //     }
+
+    //     span {
+    //         display: inline-block;
+    //         text-transform: uppercase;
+    //         vertical-align: middle;
+    //         font-family: Arial, sans-serif;
+    //         font-weight: 700;
+    //         line-height: 46px;
+    //         margin-left: 10px;
+    //         font-size: 22px;
+    //         color:white;
+    //         text-decoration: none;
+    //     }
+
+    // }
 }

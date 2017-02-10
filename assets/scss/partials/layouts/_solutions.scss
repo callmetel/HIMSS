@@ -14,7 +14,7 @@
 				.list__container{
 
 					.list__item{
-						width: 15.5%;
+						width: 16.66667%;
 					    padding-left: 15px;
 					    padding-right: 15px;
 					    position: relative;
@@ -89,7 +89,7 @@
 								    content: "";
 								    speak: none;
 								    background-image: url('../images/list-arrow.svg');
-								    background: contain;
+								    background-size: contain;
 									width: 16px;
 									height: 14px;
 									text-align: right;

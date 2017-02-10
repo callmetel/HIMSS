@@ -21,7 +21,38 @@
 		.container{
 			width:60vw;
 			background: white;
-			padding: 20px;
+			padding: 50px 0px;
+			z-index: 100;
+
+			.mktoForm{
+				margin: 0 auto;
+				width: 80%!important;
+				.mktoLabel, label{
+					color:$gray;
+				}
+			}
+			.mktoButtonRow{
+				width: 100%;
+
+				.mktoButtonWrap{
+					margin: 0 auto;
+					margin-left: auto!important;
+					width:100%;
+
+					.mktoButton{
+						width:100%;
+					}
+				}
+			}
 		}	
 	}
+}
+
+#contact-close-trigger{
+	width: 100vw;
+	height: 100vh; 
+	overflow: hidden;
+	background: transparent;
+	@include position(absolute, 50% null null 50%);
+	@include transform(translate(-50%, -50%));
 }

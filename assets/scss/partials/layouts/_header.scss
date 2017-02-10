@@ -35,7 +35,15 @@ header{
 
 		}
 
-		a.demo-exit, a.demo-back {
+		// a.takeaway-exit{
+		// 	.icon-back{
+		// 		svg {
+		// 		    fill: $orange!important;
+		// 		}	
+		// 	}
+		// }
+
+		a.demo-exit, a.takeaway-exit {
 		    @include transition(opacity .6s ease-in,background .15s ease-out, border-color .15s ease-out,fill .15s ease-out,rotate .1s ease-in,color .15s ease-out,transform .6s ease-in);
 		    display: block;
 		    width: 100%;

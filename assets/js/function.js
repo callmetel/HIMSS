@@ -51,11 +51,12 @@ $(document).ready(function() {
 		$('.menu-item:eq(0)').on('click', function(){
 			closeSolutionsDemo();
 			$('#sections').prepend(MedicityNetworkContent);
-			if($('#sections').hasClass('scenarios')){
+			if($('#sections').hasClass('medicity-network')){
 				console.log('has class');
-				$('#scenarios-video')[0].pause();
+				$('#page-2 .cta').trigger('click');
 			}
-			$('#scenarios-video').removeClass('fade-in');
+			$('#data-video').removeClass('fade-in');
+			tm.set('#map-container', {alpha:1});
 			$('#menu').removeClass().addClass('tab1-is-active');
 			$('#scenarios, #architecture, #solutions').removeClass('is-current-section is-next-section is-previous-section').addClass('is-next-section');
 			
@@ -76,20 +77,18 @@ $(document).ready(function() {
 		$('.menu-item:eq(1)').on('click', function(){
 			closeSolutionsDemo();
 			$('#sections').prepend(ScenariosContent);
+			InitScenarios();
 			$('#menu').removeClass().addClass('tab2-is-active');
+			$('#play').removeClass('is-playing');
 			$('#medicity-network').removeClass('is-current-section').addClass('is-previous-section');
 			$('#architecture, #solutions').removeClass('is-current-section is-next-section is-previous-section').addClass('is-next-section');
 			if($('#sections').hasClass('medicity-network')){
 				$('#scenarios, #architecture, #solutions').addClass('is-next-section');
+				$('#data-video')[0].pause();
 			};
 			setTimeout(function(){
 				$('#scenarios').removeClass('is-next-section is-previous-section').addClass('is-current-section');
 			}, 500);
-			setTimeout(function(){
-				$('#scenarios-video').addClass('fade-in');
-				$('#scenarios-video')[0].play();
-				$('#scenarios-video').addClass('fade-in');
-			}, 1500);
 
 			setTimeout(function(){
 				$('#medicity-network, #architecture, #solutions').detach();
@@ -102,9 +101,10 @@ $(document).ready(function() {
 			InitArchitecture();
 			if($('#sections').hasClass('scenarios')){
 				console.log('has class');
-				$('#scenarios-video')[0].pause();
+				
 			} else if($('#sections').hasClass('medicity-network')){
 				$('#scenarios, #architecture, #solutions').addClass('is-next-section');
+				$('#data-video')[0].pause();
 			};
 			$('#menu').removeClass().addClass('tab3-is-active');
 			$('#medicity-network, #scenarios').removeClass('is-next-section is-current-section').addClass('is-previous-section');
@@ -120,10 +120,10 @@ $(document).ready(function() {
 		$('.menu-item:eq(3)').on('click', function(){
 			$('#sections').prepend(SolutionsContent);
 			InitSolutions();
-			if($('#sections').hasClass('scenarios')){
+			if($('#sections').hasClass('medicity-network')){
 				console.log('has class');
-				$('#scenarios-video')[0].pause();
-			} else if($('#sections').hasClass('medicity-network') || $('#sections').hasClass('scenarios') || $('#sections').hasClass('architecture')){
+				$('#data-video')[0].pause();
+			} else if($('#sections').hasClass('scenarios') || $('#sections').hasClass('scenarios') || $('#sections').hasClass('architecture')){
 				console.log('has class');
 				$('#medicity-network, #scenarios, #architecture').removeClass('is-next-section is-current-section').addClass('is-previous-section');
 			};
@@ -144,7 +144,16 @@ $(document).ready(function() {
 		tm.set('#contact-form', {background:'rgba(0,0,0,0.8)'});
 		tm.set('.form-container', {alpha:1, y:0});
 		
-		$('#contact-form').on('click', function(){
+		var formClicked;
+
+		$('#contact-form .container').on('click', function(e){
+			console.log('form container clicked');
+			formClicked =true;
+			tm.set('#contact-form', {background:'rgba(0,0,0,0.8)'});
+			tm.set('.form-container', {alpha:1, y:0});
+			tm.set('#contact-form', {className:'-=is-inactive'});
+		});
+		$('#contact-close-trigger').on('click', function(){
 			console.log('contact form clicked');
 			tm.fromTo('#contact-form', 1, {background:'rgba(0,0,0,0.8)'}, {background:'transparent', ease:Power1.easeOut});
 			tm.fromTo('.form-container', 1, {alpha:1, y:0}, {alpha:0, y:20, ease:Power1.easeOut});
@@ -170,6 +179,7 @@ $(document).ready(function() {
 					timer,
 					draw,
 					longTimer,
+					dataPlay,
 					tl = new TimelineMax({paused: true}),
 					s1 = $('#stage-1'),
 					s2 = $('#stage-2'),
@@ -235,7 +245,6 @@ $(document).ready(function() {
 								console.log('you\'re already at that stage');
 								currProgress.removeClass('slow-progress');
 								m1.addClass('highlight-circle');
-								positionStages1();
 								break;
 							case 2:
 								currProgress.removeClass('slow-progress');
@@ -406,7 +415,6 @@ $(document).ready(function() {
 								case 2:
 									currProgress.removeClass('slow-progress');
 									console.log('you\'re already at that stage');
-									positionStages2();
 									break;
 								case 3:
 									currProgress.removeClass('slow-progress');
@@ -555,7 +563,6 @@ $(document).ready(function() {
 								case 3:
 									currProgress.removeClass('slow-progress');
 									console.log('you\'re already at that stage');
-									positionStages3();
 									break;
 								case 4:
 									currProgress.removeClass('slow-progress');
@@ -696,7 +703,6 @@ $(document).ready(function() {
 								case 4:
 									currProgress.removeClass('slow-progress');
 									console.log('you\'re already at that stage');
-									positionStages4();
 									break;
 								case 5:
 									currProgress.removeClass('slow-progress');
@@ -832,7 +838,6 @@ $(document).ready(function() {
 								case 5:
 									currProgress.removeClass('slow-progress');
 									console.log('you\'re already at that stage');
-									positionStages5();
 									break;
 								case 6:
 									currProgress.removeClass('slow-progress');
@@ -970,7 +975,6 @@ $(document).ready(function() {
 								case 6:
 									currProgress.removeClass('slow-progress');
 									console.log('you\'re already at that stage');
-									positionStages6();
 									break;
 								case 7:
 									currProgress.removeClass('slow-progress');
@@ -1114,6 +1118,7 @@ $(document).ready(function() {
 							switch (lastClicked) {
 								case 7:
 									console.log('you\'re already at that stage');
+									positionStages7();
 									break;
 								case 8:
 									draw = null;
@@ -1226,7 +1231,7 @@ $(document).ready(function() {
 
 						setTimeout(function(){
 							lastClicked = 7;
-						}, 500);
+						}, 250);
 					}
 
 					var goToStage7 = function(){ startStage7(); };
@@ -1425,6 +1430,17 @@ $(document).ready(function() {
 						}
 					});
 
+					function startDataAnimation(){
+						$('#data-video').addClass('fade-in');
+						$('#data-video')[0].play();
+						$('#data-video').addClass('fade-in');
+						dataPlay = true;
+						tm.fromTo('#map-container', 2, {alpha:1}, {alpha:0, ease:Power1.easeInOut});
+						$('#data-video')[0].addEventListener("ended", function() {
+							$('.menu-item:eq(1)').trigger('click');
+						});
+					}
+
 
 				// Auto Play Functions
 
@@ -1519,9 +1535,11 @@ $(document).ready(function() {
 							console.log('autoplay is on stage 8');
 
 							if(play.hasClass('is-playing')){
-								window.requestAnimationFrame(goToStage1);
+								// setTimeout(function(){
+								startDataAnimation();
+								// }, 1500);
 							};
-							startTimer();
+							// startTimer();
 							
 						}
 						else{
@@ -1543,6 +1561,8 @@ $(document).ready(function() {
 							stopStageAnimation();
 							console.log(' autoplay stopped');
 							auto = true;
+							dataPlay = false;
+							$('#data-video')[0].pause();
 						}
 						else if((!$(this).hasClass('is-playing') && e.which)){
 							clearTimeout(timer);
@@ -1620,6 +1640,112 @@ $(document).ready(function() {
 					tm.set('.solutions__demos > iframe', {alpha:0});
 					tm.set('.solutions__demos > .loading', {alpha:1});
 	            }, 1000);
+        	};
+        }
+
+    //========  Scenarios Functions  ===========
+	//===========================================
+	
+		var takeaway;
+
+		function InitScenarios(){
+
+			// Demos 
+
+				tm.set('.scenarios__demos', {alpha:0});
+				tm.set('.scenarios__demos > iframe', {alpha:0});
+				tm.set('.scenarios__demos > .loading', {alpha:1});
+
+				$(".scenario__box .demo-link").on("click", function(e) {
+					e.preventDefault();
+					var src = $(this).attr("href");
+					$(".scenarios__demos").removeClass('is-inactive').addClass("open");
+		            tm.fromTo('.scenarios__list', .5, {alpha:1}, {alpha:0, zIndex:-100, ease:Power1.easeInOut});
+		            tm.fromTo('.scenarios__demos', 1, {alpha:0}, {alpha:1, ease:Power1.easeInOut});
+		            tm.fromTo('.scenarios__demos > .loading', 1.5, {y:'-25%', x:'-50%'}, {y:'-50%', x:'-50%', ease:Power1.easeInOut});
+		            $("body").addClass("demo-open");
+		            $(".scenarios__demos > iframe").attr("src", src);
+		        });
+
+		        $(".scenarios__demos > iframe").on('load', function(){
+		        	if($('body').hasClass('demo-open')){
+		        		$(".scenarios__demos > iframe").removeClass('is-inactive');
+		        		tm.fromTo('.scenarios__demos > .loading', 1, {alpha:1}, {alpha:0, ease:Power1.easeInOut, delay:.5});
+		        		tm.fromTo('.scenarios__demos > iframe', 1, {alpha:0}, {alpha:1, ease:Power1.easeInOut, delay:.5});
+						console.log('scenarios demo is opened');
+		        	} else {
+		        		console.log('scenarios demo is closed');
+		        	}
+		        });
+
+		        $('.demo-exit').on('click', function(e){
+		        	e.preventDefault();
+
+		        	closeScenariosDemo();
+		        });
+
+		    // Takeaways 
+
+		        $(".scenario__box .takeaway-link").on("click", function(e) {
+					e.preventDefault();
+
+					takeaway = $(this).parents('.scenario__box').index();
+
+					console.log(takeaway);
+
+					$(".scenarios__takeaways").removeClass('is-inactive').addClass("open");
+		            tm.fromTo('.scenarios__list', .5, {alpha:1}, {alpha:0, zIndex:-100, ease:Power1.easeInOut});
+		            tm.fromTo('.scenarios__takeaways', 1, {alpha:0}, {alpha:1, ease:Power1.easeInOut});
+		            $("body").addClass("takeaway-open");
+
+		            if(takeaway == 2) {
+						$('.scenarios__takeaways .intermediary:eq(2)').addClass('active');
+						$('.scenarios__takeaways .intermediary:eq(0), .scenarios__takeaways .intermediary:eq(1)').removeClass('active');
+					}
+					else if(takeaway == 1) {
+							$('.scenarios__takeaways .intermediary:eq(1)').addClass('active');
+							$('.scenarios__takeaways .intermediary:eq(0), .scenarios__takeaways .intermediary:eq(2)').removeClass('active');
+					}
+					else if(takeaway == 0) {
+							$('.scenarios__takeaways .intermediary:eq(0)').addClass('active');
+							$('.scenarios__takeaways .intermediary:eq(1), .scenarios__takeaways .intermediary:eq(2)').removeClass('active');
+					};
+		        });
+
+		        $('.takeaway-exit').on('click', function(e){
+		        	e.preventDefault();
+
+		        	closeScenariosTakeaway();
+		        });
+	    }
+
+        function closeScenariosDemo(){
+        	if($('.scenarios__demos').hasClass('open')){
+	            tm.fromTo('.scenarios__demos', .5, {alpha:1}, {alpha:0, ease:Power1.easeInOut});
+	            tm.fromTo('.scenarios__list', 1, {alpha:0, zIndex:-100, x:'-50%', y:'-25%'}, {alpha:1, zIndex:'inherit', x:'-50%', y:'-50%', ease:Power1.easeInOut});
+	            
+	            setTimeout(function(){
+	            	$("body").removeClass("demo-open");
+	 				$('.scenarios__demos').removeClass('open').addClass('is-inactive');
+		            $(".scenarios__demos > iframe").attr("src", "");
+		            tm.set('.scenarios__demos', {alpha:0});
+					tm.set('.scenarios__demos > iframe', {alpha:0});
+					tm.set('.scenarios__demos > .loading', {alpha:1});
+	            }, 1000);
+        	};
+        }
+
+        function closeScenariosTakeaway(){
+        	if($('.scenarios__takeaways').hasClass('open')){
+	            tm.fromTo('.scenarios__takeaways', .5, {alpha:1}, {alpha:0, ease:Power1.easeInOut});
+	            tm.fromTo('.scenarios__list', 1, {alpha:0, zIndex:-100, x:'-50%', y:'-25%'}, {alpha:1, zIndex:'inherit', x:'-50%', y:'-50%', ease:Power1.easeInOut});
+	            
+	            setTimeout(function(){
+	            	$("body").removeClass("takeaway-open");
+	 				$('.scenarios__takeaways').removeClass('open').addClass('is-inactive');
+		            tm.set('.scenarios__takeaways', {alpha:0});
+	            }, 1000);
+
         	};
         }
 	

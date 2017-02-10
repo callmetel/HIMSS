@@ -1,0 +1,104 @@
+.scenarios__takeaways{
+	.intermediary{
+		display:none; 
+
+		&.active{
+			display: block!important;
+		}
+
+		h2{
+			font-family: Arial;
+			font-weight: bold;
+			font-size: 20px;
+			text-transform: uppercase;
+			margin-top: 8vh;
+		}
+		.row{
+			margin-top: 11.25vh;
+		
+			.column{
+				float: left;
+			    width: 45%;
+			    margin: 0 2.5%;
+
+				&:first-of-type {
+				    position: relative;
+
+				    &:after {
+					    content: "";
+					    position: absolute;
+					    top: 0;
+					    left: 100%;
+					    width: 2px;
+					    margin-left: 14px;
+					    background: #fff;
+					    height: 100%;
+					}
+				}
+
+				img{
+					width: auto;
+					height: 130px;
+					text-align: center;
+					margin: 0 auto;
+					display: block;
+					@include transition(height .5s ease-in-out);
+
+					@include media($desktop){
+						height: 200px;
+					}
+					@include media($macbook-pro-13){
+						height: 250px;
+					}
+					@include media($most-common-screen){
+						height: 250px;
+					}
+					@include media($md-desktop){
+						height: 250px;
+					}
+					@include media($lg-desktop){
+						height: 300px;
+					}
+					@include media($xl-desktop){
+						height: 500px;
+					}
+				}
+
+				ul {
+				    text-align: left;
+				    width: 80%;
+				    margin: 0 auto;
+				    margin-top: 5.625vh;
+
+				    li{
+				    	font-family: Arial;
+						font-weight: normal;
+						font-size: 20px;
+						color: white;
+
+						strong{
+				    		color: $blue;
+				    	}
+				    }
+				}
+
+				p{
+					font-family: Arial;
+					font-weight: normal;
+					font-size: 20px;
+					color: white;
+
+					strong{
+			    		color: $blue;
+			    	}	
+				}
+
+			}
+		}
+		
+	}
+}
+
+.column > p:first-of-type{
+	margin-top: 5.625vh;
+}

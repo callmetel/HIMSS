@@ -23,6 +23,22 @@ body{
             z-index: -100;
         }
     }
+
+    &.takeaway-open{
+        a.takeaway-exit {
+            opacity: 1!important;
+            pointer-events: auto!important;
+        }
+        #logo{
+            opacity:0;
+            z-index: -100;
+        }
+
+        // #form-btn{
+        //     opacity:0;
+        //     z-index: -100;
+        // }
+    }
 }
 
 * {
