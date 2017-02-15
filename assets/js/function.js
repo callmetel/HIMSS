@@ -57,7 +57,6 @@ $(document).ready(function() {
 		}
 
 		$('.menu-item:eq(0)').on('click', function(){
-			menuBlocker();
 			closeSolutionsDemo();
 			$('#sections').prepend(MedicityNetworkContent);
 			if($('#sections').hasClass('medicity-network')){
